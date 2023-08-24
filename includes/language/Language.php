@@ -1002,9 +1002,6 @@ class Language {
 	 *
 	 *    xkY  Y (full year) in Thai solar calendar. Months and days are
 	 *                       identical to the Gregorian calendar
-	 *    xoY  Y (full year) in Minguo calendar or Juche year.
-	 *                       Months and days are identical to the
-	 *                       Gregorian calendar
 	 *    xtY  Y (full year) in Japanese nengo. Months and days are
 	 *                       identical to the Gregorian calendar
 	 *
@@ -1046,7 +1043,6 @@ class Language {
 		$hebrew = false;
 		$hijri = false;
 		$thai = false;
-		$minguo = false;
 		$tenno = false;
 
 		$usedSecond = false;
@@ -1258,13 +1254,6 @@ class Language {
 						$thai = self::tsToYear( $ts, 'thai' );
 					}
 					$num = $thai[0];
-					break;
-				case 'xoY':
-					$usedYear = true;
-					if ( !$minguo ) {
-						$minguo = self::tsToYear( $ts, 'minguo' );
-					}
-					$num = $minguo[0];
 					break;
 				case 'xtY':
 					$usedTennoYear = true;
@@ -1798,11 +1787,9 @@ class Language {
 	}
 
 	/**
-	 * Algorithm to convert Gregorian dates to Thai solar dates,
-	 * Minguo dates or Minguo dates.
+	 * Algorithm to convert Gregorian dates to Thai solar dates.
 	 *
 	 * Link: https://en.wikipedia.org/wiki/Thai_solar_calendar
-	 *       https://en.wikipedia.org/wiki/Minguo_calendar
 	 *       https://en.wikipedia.org/wiki/Japanese_era_name
 	 *
 	 * @param string $ts 14-character timestamp
@@ -1827,11 +1814,6 @@ class Language {
 				}
 				$gm = ( $gm - 3 ) % 12;
 			}
-		} elseif ( ( !strcmp( $cName, 'minguo' ) ) || !strcmp( $cName, 'juche' ) ) {
-			# Minguo dates
-			# Deduct 1911 years from the Gregorian calendar
-			# Months and days are identical
-			$gy_offset = $gy - 1911;
 		} elseif ( !strcmp( $cName, 'tenno' ) ) {
 			# Nengō dates up to Meiji period
 			# Deduct years from the Gregorian calendar
