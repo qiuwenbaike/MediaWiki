@@ -525,7 +525,7 @@ class GenerateSitemap extends Maintenance
 		return "\t<li>\n" .
 			// T36666: $url may contain bad characters such as ampersands.
 			"\t\t<a title='" . $title . "' href='" . htmlspecialchars($url) . "'>" . $title . "</a>\n" .
-			"\t\t<p class=\"lastmod\">This page was last edited on " . $date . "</p>\n" .
+			"\t\t<span class=\"lastmod\">This page was last edited on " . $date . "</span>\n" .
 			"\t</li>\n";
 	}
 
