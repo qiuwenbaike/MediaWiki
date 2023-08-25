@@ -369,7 +369,7 @@ class GenerateSitemap extends Maintenance
 					}
 					$filename = $this->sitemapFilename($namespace, $smcount++);
 					$this->file = $this->open($this->fspath . $filename, 'wb');
-					$this->write($this->file, $this->openFile($filename));
+					$this->write($this->file, $this->openFile());
 					fwrite($this->findex, $this->indexEntry($filename));
 					$this->output("\t$this->fspath$filename\n");
 					$length = $this->limit[0];
@@ -507,9 +507,9 @@ class GenerateSitemap extends Maintenance
 	 * @param string $filename The filename of the sitemap file
 	 * @return string
 	 */
-	private function openFile($filename)
+	private function openFile()
 	{
-		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . " - {$filename}</title>\n\t<style>display:block;font-size:90%;color:#666;</style>\n</head><body><ul>" . "\n";
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>display:block;font-size:90%;color:#666;</style>\n</head><body><ul>" . "\n";
 	}
 
 	/**
