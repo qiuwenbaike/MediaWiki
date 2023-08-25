@@ -472,7 +472,7 @@ class GenerateSitemap extends Maintenance
 	 */
 	private function openIndex()
 	{
-		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head><body><ul>" . "\n";
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head>\n<body>\n\t<ul>" . "\n";
 	}
 
 	/**
@@ -509,7 +509,7 @@ class GenerateSitemap extends Maintenance
 	 */
 	private function openFile()
 	{
-		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head><body><ul>" . "\n";
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head>\n<body>\n\t<ul>" . "\n";
 	}
 
 	/**
