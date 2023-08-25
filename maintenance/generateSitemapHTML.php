@@ -472,7 +472,7 @@ class GenerateSitemap extends Maintenance
 	 */
 	private function openIndex()
 	{
-		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>display:block;font-size:90%;color:#666;</style>\n</head><body><ul>" . "\n";
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head><body><ul>" . "\n";
 	}
 
 	/**
@@ -509,7 +509,7 @@ class GenerateSitemap extends Maintenance
 	 */
 	private function openFile()
 	{
-		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>display:block;font-size:90%;color:#666;</style>\n</head><body><ul>" . "\n";
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head><body><ul>" . "\n";
 	}
 
 	/**
@@ -524,7 +524,7 @@ class GenerateSitemap extends Maintenance
 	{
 		return "\t<li>\n" .
 			// T36666: $url may contain bad characters such as ampersands.
-			"\t\t<a title='" . $title . "' href='" . htmlspecialchars($url) . "'>" . $title . "</a>\n" .
+			"\t\t<a title=\"" . $title . "' href='" . htmlspecialchars($url) . "\">" . $title . "</a>\n" .
 			"\t\t<span class=\"lastmod\">This page was last edited on " . $date . "</span>\n" .
 			"\t</li>\n";
 	}
