@@ -91,3 +91,7 @@ Thumbs.db
 # Docker
 docker-compose.override.yml
 .env
+
+# Qiuwen
+blacklist
+qw-config

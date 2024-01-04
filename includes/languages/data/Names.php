@@ -17,19 +17,19 @@
  *
  * @file
  */
-
 namespace MediaWiki\Languages\Data;
-
 /**
  * Language names in their own languages (known as "language autonyms").
  *
  * These determine things like interwikis, language selectors, and so on.
  * Safe to change without running scripts on the respective sites.
  *
- * Some writing systems require some line-height fixes. This includes
- * most Indic scripts, like Devanagari.
- * If you are adding support for such a language, add it also to
- * the relevant section in shared.css.
+ * See https://www.mediawiki.org/wiki/Manual:Adding_and_removing_languages
+ * for detailed documentation about maintaining this file, especially:
+ * - Finding the correct autonym.
+ * - What other files may have to be updated when updating this one.
+ * - Special handling for languages written in scripts of South
+ *   and South-East Asia (Devanagari, Burmese, etc.).
  *
  * Do not use this class directly. Use LanguageNameUtils::getLanguageNames(), which
  * includes support for the CLDR extension.
@@ -43,6 +43,7 @@ class Names {
 		'ab' => 'аԥсшәа', # Abkhaz
 		'abs' => 'bahasa ambon', # Ambonese Malay, T193566
 		'ace' => 'Acèh', # Aceh
+		'acm' => 'عراقي', # Iraqi (Mesopotamian) Arabic
 		'ady' => 'адыгабзэ', # Adyghe
 		'ady-cyrl' => 'адыгабзэ', # Adyghe
 		'aeb' => 'تونسي / Tûnsî', # Tunisian Arabic (multiple scripts - defaults to Arabic)
@@ -85,9 +86,11 @@ class Names {
 		'bcc' => 'جهلسری بلوچی', # Southern Balochi
 		'bci' => 'wawle', # Baoulé
 		'bcl' => 'Bikol Central', # Bikol: Central Bicolano language
+		'bdr' => 'Bajau Sama', # West Coast Bajau
 		'be' => 'беларуская', # Belarusian normative
 		'be-tarask' => 'беларуская (тарашкевіца)', # Belarusian in Taraskievica orthography
 		'be-x-old' => 'беларуская (тарашкевіца)', # (be-tarask compat)
+		'bew' => 'Betawi', # Betawi
 		'bg' => 'български', # Bulgarian
 		'bgn' => 'روچ کپتین بلوچی', # Western Balochi
 		'bh' => 'भोजपुरी', # Bihari macro language. Falls back to Bhojpuri (bho)
@@ -105,7 +108,7 @@ class Names {
 		'bs' => 'bosanski', # Bosnian
 		'btm' => 'Batak Mandailing', # Batak Mandailing
 		'bto' => 'Iriga Bicolano', # Rinconada Bikol
-		'bug' => 'ᨅᨔ ᨕᨘᨁᨗ', # Buginese
+		'bug' => 'Basa Ugi', # Buginese
 		'bxr' => 'буряад', # Buryat (Russia)
 		'ca' => 'català', # Catalan
 		'cbk-zam' => 'Chavacano de Zamboanga', # Zamboanga Chavacano, T124657
@@ -123,6 +126,7 @@ class Names {
 		'crh' => 'qırımtatarca', # Crimean Tatar (multiple scripts - defaults to Latin)
 		'crh-cyrl' => 'къырымтатарджа (Кирилл)', # Crimean Tatar (Cyrillic)
 		'crh-latn' => 'qırımtatarca (Latin)', # Crimean Tatar (Latin)
+		'crh-ro' => 'tatarşa', # Crimean Tatar (Romania)
 		'cs' => 'čeština', # Czech
 		'csb' => 'kaszëbsczi', # Cassubian
 		'cu' => 'словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ', # Old Church Slavonic (ancient language)
@@ -205,6 +209,7 @@ class Names {
 		'hif' => 'Fiji Hindi', # Fijian Hindi (multiple scripts - defaults to Latin)
 		'hif-latn' => 'Fiji Hindi', # Fiji Hindi (Latin script)
 		'hil' => 'Ilonggo', # Hiligaynon
+		'hno' => 'ہندکو', # Hindko
 		'ho' => 'Hiri Motu', # Hiri Motu
 		'hr' => 'hrvatski', # Croatian
 		'hrx' => 'Hunsrik', # Riograndenser Hunsrückisch
@@ -521,7 +526,9 @@ class Names {
 		'war' => 'Winaray', # Waray-Waray
 		'wls' => 'Fakaʻuvea', # Wallisian
 		'wo' => 'Wolof', # Wolof
-		'wuu' => '吴语', # Wu Chinese
+		'wuu' => '吴语', # Wu (multiple scripts - defaults to Simplified Han)
+		'wuu-hans' => '吴语（简体）', # Wu (Simplified Han)
+		'wuu-hant' => '吳語（繁體）', # Wu (Traditional Han)
 		'xal' => 'хальмг', # Kalmyk-Oirat
 		'xh' => 'isiXhosa', # Xhosan
 		'xmf' => 'მარგალური', # Mingrelian
@@ -530,20 +537,22 @@ class Names {
 		'yo' => 'Yorùbá', # Yoruba
 		'yrl' => 'Nhẽẽgatú', # Nheengatu
 		'yue' => '粵語', # Cantonese (multiple scripts - defaults to Traditional Han)
+		'yue-hans' => '粵语（简体）', # Cantonese (Simplified Han)
+		'yue-hant' => '粵語（繁體）', # Cantonese (Traditional Han)
 		'za' => 'Vahcuengh', # Zhuang
 		'zea' => 'Zeêuws', # Zeeuws / Zeaws
 		'zgh' => 'ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ', # Moroccan Amazigh (multiple scripts - defaults to Neo-Tifinagh)
 		'zh' => '中文', # (Zhōng Wén) - Chinese
 		'zh-classical' => '文言', # Classical Chinese/Literary Chinese -- (see T10217)
-		'zh-cn' => '中文（中国大陆）', # Chinese (PRC)
+		'zh-cn' => '中文（中国）', # Chinese (PRC)
 		'zh-hans' => '中文（简体）', # Mandarin Chinese (Simplified Chinese script) (cmn-hans)
 		'zh-hant' => '中文（繁體）', # Mandarin Chinese (Traditional Chinese script) (cmn-hant)
-		'zh-hk' => '中文（香港）', # Chinese (Hong Kong)
+		'zh-hk' => '中文（中國香港）', # Chinese (Hong Kong)
 		'zh-min-nan' => 'Bân-lâm-gú', # Min-nan -- (see T10217)
-		'zh-mo' => '中文（澳門）', # Chinese (Macau)
+		'zh-mo' => '中文（中國澳門）', # Chinese (Macau)
 		'zh-my' => '中文（马来西亚）', # Chinese (Malaysia)
 		'zh-sg' => '中文（新加坡）', # Chinese (Singapore)
-		'zh-tw' => '中文（臺灣）', # Chinese (Taiwan)
+		'zh-tw' => '中文（中國臺灣）', # Chinese (Taiwan)
 		'zh-yue' => '粵語', # Cantonese -- (see T10217)
 		'zu' => 'isiZulu' # Zulu
 	];
