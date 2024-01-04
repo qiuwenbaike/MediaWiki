@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Creates a sitemap for the site.
  *
@@ -22,14 +23,10 @@
  *
  * @file
  * @ingroup Maintenance
- * @see http://www.sitemaps.org/
- * @see http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
  */
 
 use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -40,7 +37,8 @@ require_once __DIR__ . '/Maintenance.php';
  *
  * @ingroup Maintenance
  */
-class GenerateSitemap extends Maintenance {
+class GenerateSitemap extends Maintenance
+{
 	private const GS_MAIN = -2;
 	private const GS_TALK = -1;
 
@@ -76,13 +74,6 @@ class GenerateSitemap extends Maintenance {
 	 * @var string
 	 */
 	public $urlpath;
-
-	/**
-	 * Whether or not to use compression
-	 *
-	 * @var bool
-	 */
-	public $compress;
 
 	/**
 	 * Whether or not to include redirection pages
@@ -147,9 +138,10 @@ class GenerateSitemap extends Maintenance {
 	 */
 	private $identifier;
 
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
-		$this->addDescription( 'Creates a sitemap for the site' );
+		$this->addDescription('Creates a sitemap for the site');
 		$this->addOption(
 			'fspath',
 			'The file system path to save to, e.g. /tmp/sitemap; defaults to current directory',
@@ -163,13 +155,7 @@ class GenerateSitemap extends Maintenance {
 			false,
 			true
 		);
-		$this->addOption(
-			'compress',
-			'Compress the sitemap files, can take value yes|no, default yes',
-			false,
-			true
-		);
-		$this->addOption( 'skip-redirects', 'Do not include redirecting articles in the sitemap' );
+		$this->addOption('skip-redirects', 'Do not include redirecting articles in the sitemap');
 		$this->addOption(
 			'identifier',
 			'What site identifier to use for the wiki, defaults to $wgDBname',
@@ -181,36 +167,37 @@ class GenerateSitemap extends Maintenance {
 	/**
 	 * Execute
 	 */
-	public function execute() {
+	public function execute()
+	{
 		$this->setNamespacePriorities();
 		$this->url_limit = 50000;
-		$this->size_limit = ( 2 ** 20 ) * 10;
+		$this->size_limit = (2 ** 20) * 20;
 
 		# Create directory if needed
-		$fspath = $this->getOption( 'fspath', getcwd() );
-		if ( !wfMkdirParents( $fspath, null, __METHOD__ ) ) {
-			$this->fatalError( "Can not create directory $fspath." );
+		$fspath = $this->getOption('fspath', getcwd());
+		if (!wfMkdirParents($fspath, null, __METHOD__)) {
+			$this->fatalError("Can not create directory $fspath.");
 		}
 
 		$dbDomain = WikiMap::getCurrentWikiDbDomain()->getId();
-		$this->fspath = realpath( $fspath ) . DIRECTORY_SEPARATOR;
-		$this->urlpath = $this->getOption( 'urlpath', "" );
-		if ( $this->urlpath !== "" && substr( $this->urlpath, -1 ) !== '/' ) {
+		$this->fspath = realpath($fspath) . DIRECTORY_SEPARATOR;
+		$this->urlpath = $this->getOption('urlpath', "");
+		if ($this->urlpath !== "" && substr($this->urlpath, -1) !== '/') {
 			$this->urlpath .= '/';
 		}
-		$this->identifier = $this->getOption( 'identifier', $dbDomain );
-		$this->compress = $this->getOption( 'compress', 'yes' ) !== 'no';
-		$this->skipRedirects = $this->hasOption( 'skip-redirects' );
-		$this->dbr = $this->getDB( DB_REPLICA );
+		$this->identifier = $this->getOption('identifier', $dbDomain);
+		$this->skipRedirects = $this->hasOption('skip-redirects');
+		$this->dbr = $this->getDB(DB_REPLICA);
 		$this->generateNamespaces();
-		$this->timestamp = wfTimestamp( TS_ISO_8601, wfTimestampNow() );
-		$encIdentifier = rawurlencode( $this->identifier );
-		$this->findex = fopen( "{$this->fspath}sitemap-index-{$encIdentifier}.xml", 'wb' );
+		$this->timestamp = wfTimestamp(TS_ISO_8601, wfTimestampNow());
+		$encIdentifier = rawurlencode($this->identifier);
+		$this->findex = fopen("{$this->fspath}sitemap-index-{$encIdentifier}.html", 'wb');
 		$this->main();
 	}
 
-	private function setNamespacePriorities() {
-		$sitemapNamespacesPriorities = $this->getConfig()->get( MainConfigNames::SitemapNamespacesPriorities );
+	private function setNamespacePriorities()
+	{
+		$sitemapNamespacesPriorities = $this->getConfig()->get(MainConfigNames::SitemapNamespacesPriorities);
 
 		// Custom main namespaces
 		$this->priorities[self::GS_MAIN] = '0.5';
@@ -235,15 +222,15 @@ class GenerateSitemap extends Maintenance {
 		$this->priorities[NS_CATEGORY_TALK] = '0.1';
 
 		// Custom priorities
-		if ( $sitemapNamespacesPriorities !== false ) {
+		if ($sitemapNamespacesPriorities !== false) {
 			/**
 			 * @var array $sitemapNamespacesPriorities
 			 */
-			foreach ( $sitemapNamespacesPriorities as $namespace => $priority ) {
-				$float = floatval( $priority );
-				if ( $float > 1.0 ) {
+			foreach ($sitemapNamespacesPriorities as $namespace => $priority) {
+				$float = floatval($priority);
+				if ($float > 1.0) {
 					$priority = '1.0';
-				} elseif ( $float < 0.0 ) {
+				} elseif ($float < 0.0) {
 					$priority = '0.0';
 				}
 				$this->priorities[$namespace] = $priority;
@@ -254,17 +241,19 @@ class GenerateSitemap extends Maintenance {
 	/**
 	 * Generate a one-dimensional array of existing namespaces
 	 */
-	private function generateNamespaces() {
+	private function generateNamespaces()
+	{
 		// Only generate for specific namespaces if $wgSitemapNamespaces is an array.
-		$sitemapNamespaces = $this->getConfig()->get( MainConfigNames::SitemapNamespaces );
-		if ( is_array( $sitemapNamespaces ) ) {
+		$sitemapNamespaces = $this->getConfig()->get(MainConfigNames::SitemapNamespaces);
+		if (is_array($sitemapNamespaces)) {
 			$this->namespaces = $sitemapNamespaces;
 
 			return;
 		}
 
-		$res = $this->dbr->select( 'page',
-			[ 'page_namespace' ],
+		$res = $this->dbr->select(
+			'page',
+			['page_namespace'],
 			[],
 			__METHOD__,
 			[
@@ -273,7 +262,7 @@ class GenerateSitemap extends Maintenance {
 			]
 		);
 
-		foreach ( $res as $row ) {
+		foreach ($res as $row) {
 			$this->namespaces[] = $row->page_namespace;
 		}
 	}
@@ -284,8 +273,9 @@ class GenerateSitemap extends Maintenance {
 	 * @param int $namespace The namespace to get the priority for
 	 * @return string
 	 */
-	private function priority( $namespace ) {
-		return $this->priorities[$namespace] ?? $this->guessPriority( $namespace );
+	private function priority($namespace)
+	{
+		return $this->priorities[$namespace] ?? $this->guessPriority($namespace);
 	}
 
 	/**
@@ -296,8 +286,9 @@ class GenerateSitemap extends Maintenance {
 	 * @param int $namespace The namespace to get the priority for
 	 * @return string
 	 */
-	private function guessPriority( $namespace ) {
-		return MediaWikiServices::getInstance()->getNamespaceInfo()->isSubject( $namespace )
+	private function guessPriority($namespace)
+	{
+		return MediaWikiServices::getInstance()->getNamespaceInfo()->isSubject($namespace)
 			? $this->priorities[self::GS_MAIN]
 			: $this->priorities[self::GS_TALK];
 	}
@@ -308,9 +299,10 @@ class GenerateSitemap extends Maintenance {
 	 * @param int $namespace Limit the query to this namespace
 	 * @return IResultWrapper
 	 */
-	private function getPageRes( $namespace ) {
+	private function getPageRes($namespace)
+	{
 		return $this->dbr->select(
-			[ 'page', 'page_props' ],
+			['page', 'page_props'],
 			[
 				'page_namespace',
 				'page_title',
@@ -318,7 +310,7 @@ class GenerateSitemap extends Maintenance {
 				'page_is_redirect',
 				'pp_propname',
 			],
-			[ 'page_namespace' => $namespace ],
+			['page_namespace' => $namespace],
 			__METHOD__,
 			[],
 			[
@@ -336,120 +328,117 @@ class GenerateSitemap extends Maintenance {
 	/**
 	 * Main loop
 	 */
-	public function main() {
+	public function main()
+	{
 		$services = MediaWikiServices::getInstance();
 		$contLang = $services->getContentLanguage();
-		$langConverter = $services->getLanguageConverterFactory()->getLanguageConverter( $contLang );
+		$langConverter = $services->getLanguageConverterFactory()->getLanguageConverter($contLang);
 
-		fwrite( $this->findex, $this->openIndex() );
+		fwrite($this->findex, $this->openIndex());
 
-		foreach ( $this->namespaces as $namespace ) {
-			$res = $this->getPageRes( $namespace );
+		foreach ($this->namespaces as $namespace) {
+			$res = $this->getPageRes($namespace);
 			$this->file = false;
-			$this->generateLimit( $namespace );
+			$this->generateLimit($namespace);
 			$length = $this->limit[0];
 			$i = $smcount = 0;
 
-			$fns = $contLang->getFormattedNsText( $namespace );
-			$this->output( "$namespace ($fns)\n" );
+			$fns = $contLang->getFormattedNsText($namespace);
+			$this->output("$namespace ($fns)\n");
 			$skippedRedirects = 0; // Number of redirects skipped for that namespace
 			$skippedNoindex = 0; // Number of pages with __NOINDEX__ switch for that NS
-			foreach ( $res as $row ) {
-				if ( $row->pp_propname === 'noindex' ) {
+			foreach ($res as $row) {
+				if ($row->pp_propname === 'noindex') {
 					$skippedNoindex++;
 					continue;
 				}
 
-				if ( $this->skipRedirects && $row->page_is_redirect ) {
+				if ($this->skipRedirects && $row->page_is_redirect) {
 					$skippedRedirects++;
 					continue;
 				}
 
-				if ( $i++ === 0
+				if (
+					$i++ === 0
 					|| $i === $this->url_limit + 1
 					|| $length + $this->limit[1] + $this->limit[2] > $this->size_limit
 				) {
-					if ( $this->file !== false ) {
-						$this->write( $this->file, $this->closeFile() );
-						$this->close( $this->file );
+					if ($this->file !== false) {
+						$this->write($this->file, $this->closeFile());
+						$this->close($this->file);
 					}
-					$filename = $this->sitemapFilename( $namespace, $smcount++ );
-					$this->file = $this->open( $this->fspath . $filename, 'wb' );
-					$this->write( $this->file, $this->openFile() );
-					fwrite( $this->findex, $this->indexEntry( $filename ) );
-					$this->output( "\t$this->fspath$filename\n" );
+					$filename = $this->sitemapFilename($namespace, $smcount++);
+					$this->file = $this->open($this->fspath . $filename, 'wb');
+					$this->write($this->file, $this->openFile());
+					fwrite($this->findex, $this->indexEntry($filename));
+					$this->output("\t$this->fspath$filename\n");
 					$length = $this->limit[0];
 					$i = 1;
 				}
-				$title = Title::makeTitle( $row->page_namespace, $row->page_title );
-				$date = wfTimestamp( TS_ISO_8601, $row->page_touched );
-				$entry = $this->fileEntry( $title->getCanonicalURL(), $date, $this->priority( $namespace ) );
-				$length += strlen( $entry );
-				$this->write( $this->file, $entry );
+				$title = Title::makeTitle($row->page_namespace, $row->page_title);
+				$date = wfTimestamp(TS_ISO_8601, $row->page_touched);
+				$entry = $this->fileEntry($title->getFullText(), $title->getCanonicalURL(), $date, $this->priority($namespace));
+				$length += strlen($entry);
+				$this->write($this->file, $entry);
 			}
 
-			if ( $skippedNoindex > 0 ) {
-				$this->output( "  skipped $skippedNoindex page(s) with __NOINDEX__ switch\n" );
+			if ($skippedNoindex > 0) {
+				$this->output("  skipped $skippedNoindex page(s) with __NOINDEX__ switch\n");
 			}
 
-			if ( $this->skipRedirects && $skippedRedirects > 0 ) {
-				$this->output( "  skipped $skippedRedirects redirect(s)\n" );
+			if ($this->skipRedirects && $skippedRedirects > 0) {
+				$this->output("  skipped $skippedRedirects redirect(s)\n");
 			}
 
-			if ( $this->file ) {
-				$this->write( $this->file, $this->closeFile() );
-				$this->close( $this->file );
+			if ($this->file) {
+				$this->write($this->file, $this->closeFile());
+				$this->close($this->file);
 			}
 		}
-		fwrite( $this->findex, $this->closeIndex() );
-		fclose( $this->findex );
+		fwrite($this->findex, $this->closeIndex());
+		fclose($this->findex);
 	}
 
 	/**
-	 * gzopen() / fopen() wrapper
+	 * fopen() wrapper
 	 *
 	 * @param string $file
 	 * @param string $flags
 	 * @return resource
 	 */
-	private function open( $file, $flags ) {
-		$resource = $this->compress ? gzopen( $file, $flags ) : fopen( $file, $flags );
-		if ( $resource === false ) {
-			throw new RuntimeException( __METHOD__
-				. " error opening file $file with flags $flags. Check permissions?" );
+	private function open($file, $flags)
+	{
+		$resource = fopen($file, $flags);
+		if ($resource === false) {
+			throw new MWException(__METHOD__
+				. " error opening file $file with flags $flags. Check permissions?");
 		}
 
 		return $resource;
 	}
 
 	/**
-	 * gzwrite() / fwrite() wrapper
+	 * fwrite() wrapper
 	 *
 	 * @param resource &$handle
 	 * @param string $str
 	 */
-	private function write( &$handle, $str ) {
-		if ( $handle === true || $handle === false ) {
-			throw new InvalidArgumentException( __METHOD__ . " was passed a boolean as a file handle.\n" );
+	private function write(&$handle, $str)
+	{
+		if ($handle === true || $handle === false) {
+			throw new MWException(__METHOD__ . " was passed a boolean as a file handle.\n");
 		}
-		if ( $this->compress ) {
-			gzwrite( $handle, $str );
-		} else {
-			fwrite( $handle, $str );
-		}
+		fwrite($handle, $str);
 	}
 
 	/**
-	 * gzclose() / fclose() wrapper
+	 * fclose() wrapper
 	 *
 	 * @param resource &$handle
 	 */
-	private function close( &$handle ) {
-		if ( $this->compress ) {
-			gzclose( $handle );
-		} else {
-			fclose( $handle );
-		}
+	private function close(&$handle)
+	{
+		fclose($handle);
 	}
 
 	/**
@@ -459,96 +448,95 @@ class GenerateSitemap extends Maintenance {
 	 * @param int $count
 	 * @return string
 	 */
-	private function sitemapFilename( $namespace, $count ) {
-		$ext = $this->compress ? '.gz' : '';
+	private function sitemapFilename($namespace, $count)
+	{
+		$ext = '';
 
-		return "sitemap-{$this->identifier}-NS_$namespace-$count.xml$ext";
+		return "sitemap-{$this->identifier}-NS_$namespace-$count.html$ext";
 	}
 
 	/**
-	 * Return the XML required to open an XML file
+	 * Return the HTML required to open an HTML file
 	 *
 	 * @return string
 	 */
-	private function xmlHead() {
-		return '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+	private function htmlHead()
+	{
+		return '<!DOCTYPE html>' . "\n";
 	}
 
 	/**
-	 * Return the XML schema being used
+	 * Return the HTML required to open a sitemap index file
 	 *
 	 * @return string
 	 */
-	private function xmlSchema() {
-		return 'http://www.sitemaps.org/schemas/sitemap/0.9';
+	private function openIndex()
+	{
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap Index" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head>\n<body>\n\t<ul>" . "\n";
 	}
 
 	/**
-	 * Return the XML required to open a sitemap index file
-	 *
-	 * @return string
-	 */
-	private function openIndex() {
-		return $this->xmlHead() . '<sitemapindex xmlns="' . $this->xmlSchema() . '">' . "\n";
-	}
-
-	/**
-	 * Return the XML for a single sitemap indexfile entry
+	 * Return the HTML for a single sitemap indexfile entry
 	 *
 	 * @param string $filename The filename of the sitemap file
 	 * @return string
 	 */
-	private function indexEntry( $filename ) {
-		return "\t<sitemap>\n" .
-			"\t\t<loc>" . wfGetServerUrl( PROTO_CANONICAL ) .
-				( substr( $this->urlpath, 0, 1 ) === "/" ? "" : "/" ) .
-				"{$this->urlpath}$filename</loc>\n" .
-			"\t\t<lastmod>{$this->timestamp}</lastmod>\n" .
-			"\t</sitemap>\n";
+	private function indexEntry($filename)
+	{
+		return "\t<li>\n" .
+			"\t\t<a href='" . wfGetServerUrl(PROTO_CANONICAL) .
+			(substr($this->urlpath, 0, 1) === "/" ? "" : "/") .
+			"{$this->urlpath}$filename'>$filename</a>\n" .
+			"\t\t<span class=\"lastmod\">This sitemap was last edited on {$this->timestamp}</span>\n" .
+			"\t</li>\n";
 	}
 
 	/**
-	 * Return the XML required to close a sitemap index file
+	 * Return the HTML required to close a sitemap index file
 	 *
 	 * @return string
 	 */
-	private function closeIndex() {
-		return "</sitemapindex>\n";
+	private function closeIndex()
+	{
+		return "</ul></body>\n";
 	}
 
 	/**
-	 * Return the XML required to open a sitemap file
+	 * Return the HTML required to open a sitemap file
 	 *
+	 * @param string $filename The filename of the sitemap file
 	 * @return string
 	 */
-	private function openFile() {
-		return $this->xmlHead() . '<urlset xmlns="' . $this->xmlSchema() . '">' . "\n";
+	private function openFile()
+	{
+		return $this->htmlHead() . "<head>\n\t<title>Sitemap" . ($this->identifier ? ' for ' . $this->identifier : '') . "</title>\n\t<style>.lastmod{display:block;font-size:90%;color:#666}</style>\n</head>\n<body>\n\t<ul>" . "\n";
 	}
 
 	/**
-	 * Return the XML for a single sitemap entry
+	 * Return the HTML for a single sitemap entry
 	 *
 	 * @param string $url An RFC 2396 compliant URL
 	 * @param string $date A ISO 8601 date
 	 * @param string $priority A priority indicator, 0.0 - 1.0 inclusive with a 0.1 stepsize
 	 * @return string
 	 */
-	private function fileEntry( $url, $date, $priority ) {
-		return "\t<url>\n" .
+	private function fileEntry($title, $url, $date, $priority)
+	{
+		return "\t<li>\n" .
 			// T36666: $url may contain bad characters such as ampersands.
-			"\t\t<loc>" . htmlspecialchars( $url ) . "</loc>\n" .
-			"\t\t<lastmod>$date</lastmod>\n" .
-			"\t\t<priority>$priority</priority>\n" .
-			"\t</url>\n";
+			"\t\t<a title=\"" . $title . "\" href=\"" . htmlspecialchars($url) . "\">" . $title . "</a>\n" .
+			"\t\t<span class=\"lastmod\">This page was last edited on " . $date . "</span>\n" .
+			"\t</li>\n";
 	}
 
 	/**
-	 * Return the XML required to close sitemap file
+	 * Return the HTML required to close sitemap file
 	 *
 	 * @return string
 	 */
-	private function closeFile() {
-		return "</urlset>\n";
+	private function closeFile()
+	{
+		return "</ul></body>\n";
 	}
 
 	/**
@@ -556,18 +544,20 @@ class GenerateSitemap extends Maintenance {
 	 *
 	 * @param int $namespace
 	 */
-	private function generateLimit( $namespace ) {
+	private function generateLimit($namespace)
+	{
 		// T19961: make a title with the longest possible URL in this namespace
-		$title = Title::makeTitle( $namespace, str_repeat( "\u{28B81}", 63 ) . "\u{5583}" );
+		$title = Title::makeTitle($namespace, str_repeat("\u{28B81}", 63) . "\u{5583}");
 
 		$this->limit = [
-			strlen( $this->openFile() ),
-			strlen( $this->fileEntry(
+			strlen($this->openFile()),
+			strlen($this->fileEntry(
+				$title->getFullText(),
 				$title->getCanonicalURL(),
-				wfTimestamp( TS_ISO_8601, wfTimestamp() ),
-				$this->priority( $namespace )
-			) ),
-			strlen( $this->closeFile() )
+				wfTimestamp(TS_ISO_8601, wfTimestamp()),
+				$this->priority($namespace)
+			)),
+			strlen($this->closeFile())
 		];
 	}
 }
