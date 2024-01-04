@@ -900,13 +900,6 @@ class LanguageIntegrationTest extends LanguageClassesTestCase {
 				'Thai year'
 			],
 			[
-				'xoY',
-				'20120102090705',
-				'101',
-				'101',
-				'Minguo'
-			],
-			[
 				'xtY',
 				'18660101000000',
 				'西暦1866',

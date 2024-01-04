@@ -17,9 +17,7 @@
  *
  * @file
  */
-
 namespace MediaWiki\Languages\Data;
-
 /**
  * Language names in their own languages (known as "language autonyms").
  *
@@ -548,7 +546,7 @@ class Names {
 		'wo' => 'Wolof', # Wolof
 		'wuu' => '吴语', # Wu (multiple scripts - defaults to Simplified Han)
 		'wuu-hans' => '吴语（简体）', # Wu (Simplified Han)
-		'wuu-hant' => '吳語（正體）', # Wu (Traditional Han)
+		'wuu-hant' => '吳語（繁體）', # Wu (Traditional Han)
 		'xal' => 'хальмг', # Kalmyk-Oirat
 		'xh' => 'isiXhosa', # Xhosan
 		'xmf' => 'მარგალური', # Mingrelian
@@ -564,15 +562,15 @@ class Names {
 		'zgh' => 'ⵜⴰⵎⴰⵣⵉⵖⵜ ⵜⴰⵏⴰⵡⴰⵢⵜ', # Moroccan Amazigh (multiple scripts - defaults to Neo-Tifinagh)
 		'zh' => '中文', # (Zhōng Wén) - Chinese
 		'zh-classical' => '文言', # Classical Chinese/Literary Chinese -- (see T10217)
-		'zh-cn' => '中文（中国大陆）', # Chinese (PRC)
+		'zh-cn' => '中文（中国）', # Chinese (PRC)
 		'zh-hans' => '中文（简体）', # Mandarin Chinese (Simplified Chinese script) (cmn-hans)
 		'zh-hant' => '中文（繁體）', # Mandarin Chinese (Traditional Chinese script) (cmn-hant)
-		'zh-hk' => '中文（香港）', # Chinese (Hong Kong)
+		'zh-hk' => '中文（中國香港）', # Chinese (Hong Kong)
 		'zh-min-nan' => 'Bân-lâm-gú', # Min-nan -- (see T10217)
-		'zh-mo' => '中文（澳門）', # Chinese (Macau)
+		'zh-mo' => '中文（中國澳門）', # Chinese (Macau)
 		'zh-my' => '中文（马来西亚）', # Chinese (Malaysia)
 		'zh-sg' => '中文（新加坡）', # Chinese (Singapore)
-		'zh-tw' => '中文（臺灣）', # Chinese (Taiwan)
+		'zh-tw' => '中文（中國臺灣）', # Chinese (Taiwan)
 		'zh-yue' => '粵語', # Cantonese -- (see T10217)
 		'zu' => 'isiZulu' # Zulu
 	];

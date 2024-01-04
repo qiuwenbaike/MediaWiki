@@ -325,75 +325,6 @@ class Exif {
 				# Unique image ID
 				'ImageUniqueID' => self::ASCII,
 			],
-
-			# GPS Attribute Information (p52)
-			'GPS' => [
-				'GPSVersion' => self::UNDEFINED,
-				# Should be an array of 4 Exif::BYTE's. However, php treats it as an undefined
-				# Note exif standard calls this GPSVersionID, but php doesn't like the id suffix
-				# North or South Latitude #p52-53
-				'GPSLatitudeRef' => self::ASCII,
-				# Latitude
-				'GPSLatitude' => [ self::RATIONAL, 3 ],
-				# East or West Longitude #p53
-				'GPSLongitudeRef' => self::ASCII,
-				# Longitude
-				'GPSLongitude' => [ self::RATIONAL, 3 ],
-				'GPSAltitudeRef' => self::UNDEFINED,
-
-				# Altitude reference. Note, the exif standard says this should be an EXIF::Byte,
-				# but php seems to disagree.
-				# Altitude
-				'GPSAltitude' => self::RATIONAL,
-				# GPS time (atomic clock)
-				'GPSTimeStamp' => [ self::RATIONAL, 3 ],
-				# Satellites used for measurement
-				'GPSSatellites' => self::ASCII,
-				# Receiver status #p54
-				'GPSStatus' => self::ASCII,
-				# Measurement mode #p54-55
-				'GPSMeasureMode' => self::ASCII,
-				# Measurement precision
-				'GPSDOP' => self::RATIONAL,
-				# Speed unit #p55
-				'GPSSpeedRef' => self::ASCII,
-				# Speed of GPS receiver
-				'GPSSpeed' => self::RATIONAL,
-				# Reference for direction of movement #p55
-				'GPSTrackRef' => self::ASCII,
-				# Direction of movement
-				'GPSTrack' => self::RATIONAL,
-				# Reference for direction of image #p56
-				'GPSImgDirectionRef' => self::ASCII,
-				# Direction of image
-				'GPSImgDirection' => self::RATIONAL,
-				# Geodetic survey data used
-				'GPSMapDatum' => self::ASCII,
-				# Reference for latitude of destination #p56
-				'GPSDestLatitudeRef' => self::ASCII,
-				# Latitude destination
-				'GPSDestLatitude' => [ self::RATIONAL, 3 ],
-				# Reference for longitude of destination #p57
-				'GPSDestLongitudeRef' => self::ASCII,
-				# Longitude of destination
-				'GPSDestLongitude' => [ self::RATIONAL, 3 ],
-				# Reference for bearing of destination #p57
-				'GPSDestBearingRef' => self::ASCII,
-				# Bearing of destination
-				'GPSDestBearing' => self::RATIONAL,
-				# Reference for distance to destination #p57-58
-				'GPSDestDistanceRef' => self::ASCII,
-				# Distance to destination
-				'GPSDestDistance' => self::RATIONAL,
-				# Name of GPS processing method
-				'GPSProcessingMethod' => self::UNDEFINED,
-				# Name of GPS area
-				'GPSAreaInformation' => self::UNDEFINED,
-				# GPS date
-				'GPSDateStamp' => self::ASCII,
-				# GPS differential correction
-				'GPSDifferential' => self::SHORT,
-			],
 		];
 
 		$this->file = $file;
@@ -478,42 +409,10 @@ class Exif {
 	 * if we make up our own types like Exif::DATE.
 	 */
 	private function collapseData() {
-		$this->exifGPStoNumber( 'GPSLatitude' );
-		$this->exifGPStoNumber( 'GPSDestLatitude' );
-		$this->exifGPStoNumber( 'GPSLongitude' );
-		$this->exifGPStoNumber( 'GPSDestLongitude' );
-
-		if ( isset( $this->mFilteredExifData['GPSAltitude'] ) ) {
-			// We know altitude data is a <num>/<denom> from the validation
-			// functions ran earlier. But multiplying such a string by -1
-			// doesn't work well, so convert.
-			[ $num, $denom ] = explode( '/', $this->mFilteredExifData['GPSAltitude'], 2 );
-			$this->mFilteredExifData['GPSAltitude'] = (int)$num / (int)$denom;
-
-			if ( isset( $this->mFilteredExifData['GPSAltitudeRef'] ) ) {
-				switch ( $this->mFilteredExifData['GPSAltitudeRef'] ) {
-					case "\0":
-						// Above sea level
-						break;
-					case "\1":
-						// Below sea level
-						$this->mFilteredExifData['GPSAltitude'] *= -1;
-						break;
-					default:
-						// Invalid
-						unset( $this->mFilteredExifData['GPSAltitude'] );
-						break;
-				}
-			}
-		}
-		unset( $this->mFilteredExifData['GPSAltitudeRef'] );
-
 		$this->exifPropToOrd( 'FileSource' );
 		$this->exifPropToOrd( 'SceneType' );
 
 		$this->charCodeString( 'UserComment' );
-		$this->charCodeString( 'GPSProcessingMethod' );
-		$this->charCodeString( 'GPSAreaInformation' );
 
 		// ComponentsConfiguration should really be an array instead of a string...
 		// This turns a string of binary numbers into an array of numbers.
@@ -529,38 +428,6 @@ class Exif {
 			// this is for formatting later.
 			$ccVals['_type'] = 'ol';
 			$this->mFilteredExifData['ComponentsConfiguration'] = $ccVals;
-		}
-
-		// GPSVersion(ID) is treated as the wrong type by php exif support.
-		// Go through each byte turning it into a version string.
-		// For example: "\x02\x02\x00\x00" -> "2.2.0.0"
-
-		// Also change exif tag name from GPSVersion (what php exif thinks it is)
-		// to GPSVersionID (what the exif standard thinks it is).
-
-		if ( isset( $this->mFilteredExifData['GPSVersion'] ) ) {
-			$val = $this->mFilteredExifData['GPSVersion'];
-			$newVal = '';
-
-			$strLen = strlen( $val );
-			for ( $i = 0; $i < $strLen; $i++ ) {
-				if ( $i !== 0 ) {
-					$newVal .= '.';
-				}
-				$newVal .= ord( substr( $val, $i, 1 ) );
-			}
-
-			if ( $this->byteOrder === 'LE' ) {
-				// Need to reverse the string
-				$newVal2 = '';
-				for ( $i = strlen( $newVal ) - 1; $i >= 0; $i-- ) {
-					$newVal2 .= substr( $newVal, $i, 1 );
-				}
-				$this->mFilteredExifData['GPSVersionID'] = $newVal2;
-			} else {
-				$this->mFilteredExifData['GPSVersionID'] = $newVal;
-			}
-			unset( $this->mFilteredExifData['GPSVersion'] );
 		}
 	}
 
@@ -637,43 +504,11 @@ class Exif {
 		}
 	}
 
-	/**
-	 * Convert gps in exif form to a single floating point number
-	 * for example 10 degrees 20`40`` S -> -10.34444
-	 * @param string $prop A GPS coordinate exif tag name (like GPSLongitude)
+	/** #@- */
+
+	/** #@+
+	 * @return array
 	 */
-	private function exifGPStoNumber( $prop ) {
-		$loc =& $this->mFilteredExifData[$prop];
-		$dir =& $this->mFilteredExifData[$prop . 'Ref'];
-		$res = false;
-
-		if ( isset( $loc ) && isset( $dir )
-			&& ( $dir === 'N' || $dir === 'S' || $dir === 'E' || $dir === 'W' )
-		) {
-			[ $num, $denom ] = explode( '/', $loc[0], 2 );
-			$res = (int)$num / (int)$denom;
-			[ $num, $denom ] = explode( '/', $loc[1], 2 );
-			$res += ( (int)$num / (int)$denom ) * ( 1 / 60 );
-			[ $num, $denom ] = explode( '/', $loc[2], 2 );
-			$res += ( (int)$num / (int)$denom ) * ( 1 / 3600 );
-
-			if ( $dir === 'S' || $dir === 'W' ) {
-				// make negative
-				$res *= -1;
-			}
-		}
-
-		// update the exif records.
-
-		// using !== as $res could potentially be 0
-		if ( $res !== false ) {
-			$this->mFilteredExifData[$prop] = $res;
-		} else {
-			// if invalid
-			unset( $this->mFilteredExifData[$prop] );
-		}
-		unset( $this->mFilteredExifData[$prop . 'Ref'] );
-	}
 
 	/**
 	 * Get $this->mRawExifData
