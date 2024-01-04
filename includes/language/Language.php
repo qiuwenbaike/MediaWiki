@@ -821,9 +821,6 @@ class Language implements Bcp47Code {
 	 *
 	 *    xkY  Y (full year) in Thai solar calendar. Months and days are
 	 *                       identical to the Gregorian calendar
-	 *    xoY  Y (full year) in Minguo calendar or Juche year.
-	 *                       Months and days are identical to the
-	 *                       Gregorian calendar
 	 *    xtY  Y (full year) in Japanese nengo. Months and days are
 	 *                       identical to the Gregorian calendar
 	 *
@@ -864,7 +861,6 @@ class Language implements Bcp47Code {
 		$hebrew = false;
 		$hijri = false;
 		$thai = false;
-		$minguo = false;
 		$tenno = false;
 
 		$usedSecond = false;
@@ -1106,14 +1102,6 @@ class Language implements Bcp47Code {
 						$thai = self::tsToYear( $ts, 'thai' );
 					}
 					$num = $thai[0];
-					break;
-
-				case 'xoY':
-					$usedYear = true;
-					if ( !$minguo ) {
-						$minguo = self::tsToYear( $ts, 'minguo' );
-					}
-					$num = $minguo[0];
 					break;
 
 				case 'xtY':
@@ -1677,11 +1665,9 @@ class Language implements Bcp47Code {
 	}
 
 	/**
-	 * Algorithm to convert Gregorian dates to Thai solar dates,
-	 * Minguo dates or Minguo dates.
+	 * Algorithm to convert Gregorian dates to Thai solar dates.
 	 *
 	 * Link: https://en.wikipedia.org/wiki/Thai_solar_calendar
-	 *       https://en.wikipedia.org/wiki/Minguo_calendar
 	 *
 	 * @param string $ts 14-character timestamp
 	 * @param string $cName Calendar name
@@ -1705,11 +1691,6 @@ class Language implements Bcp47Code {
 				}
 				$gm = ( $gm - 3 ) % 12;
 			}
-		} elseif ( $cName === 'minguo' || $cName === 'juche' ) {
-			# Minguo dates
-			# Deduct 1911 years from the Gregorian calendar
-			# Months and days are identical
-			$gy_offset = $gy - 1911;
 		} else {
 			$gy_offset = $gy;
 		}
@@ -1968,7 +1949,6 @@ class Language implements Bcp47Code {
 			'i' => 'persian', // Iranian
 			'm' => 'islamic', // Hijri
 			'k' => 'buddhist', // Thai
-			'o' => 'roc', // Minguo
 			't' => 'japanese' // Tenno
 		];
 
