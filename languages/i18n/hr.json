@@ -52,7 +52,8 @@
 			"Zeljko.filipin",
 			"Сербијана",
 			"לערי ריינהארט",
-			"아라"
+			"아라",
+			"Iketsi"
 		]
 	},
 	"tog-underline": "Podcrtavanje poveznica",
@@ -238,7 +239,7 @@
 	"toolbox": "Pomagala",
 	"cactions": "Više",
 	"tool-link-userrights": "{{GENDER:$1|Suradnikova|Suradničina}} prava",
-	"tool-link-userrights-readonly": "Vidi {{GENDER:$1|suradnikovu|suradničinu|suradničku}} pripadnost skupinama",
+	"tool-link-userrights-readonly": "Vidi {{GENDER:$1|suradnička}} prava",
 	"tool-link-emailuser": "Pošalji e-poruku {{GENDER:$1|suradniku|suradnici}}",
 	"imagepage": "Vidi stranicu datoteke",
 	"mediawikipage": "Vidi stranicu poruke",
@@ -2995,7 +2996,7 @@
 	"confirm-rollback-button": "U redu",
 	"confirm-rollback-top": "Ukloniti uređivanja na ovoj stranici?",
 	"confirm-mcrundo-title": "Poništavanje izmjene",
-	"percent": "$1 %",
+	"percent": "$1&#160;%",
 	"quotation-marks": "\"$1\"",
 	"imgmultipageprev": "← prethodna slika",
 	"imgmultipagenext": "sljedeća slika →",
