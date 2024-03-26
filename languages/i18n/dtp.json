@@ -228,7 +228,7 @@
 	"currentevents": "Ababayan maamaso",
 	"currentevents-url": "Project:Ahal maamaso",
 	"disclaimers": "Pogoliman",
-	"disclaimerpage": "Projek:Pogoliman umum",
+	"disclaimerpage": "Project:Pogoliman umum",
 	"edithelp": "Sokodung mongidit",
 	"helppage-top-gethelp": "Uhupai",
 	"mainpage": "Natad tagayo",
@@ -237,7 +237,7 @@
 	"portal": "Portal momogun",
 	"portal-url": "Project:Portal momogun",
 	"privacy": "Dasar privasi",
-	"privacypage": "Projek:Dasar privasi",
+	"privacypage": "Project:Dasar privasi",
 	"badaccess": "Nokosilap papasaga",
 	"badaccess-group0": "Pogoduhan ko do papapanau di pingkarajaon it pinokianu nu.",
 	"badaccess-groups": "Pingkarajaon di pinokianu nu pinatantu montok momomoguno do {{PLURAL:$2|kotinimungan|iso mantad kotinimungan}}: $1.",
@@ -1232,6 +1232,6 @@
 	"blockedtext-start-time": "Timpuunan do mangantob: $1",
 	"blockedtext-expiration-time": "Timpu aayi pagantaban: $1",
 	"blockedtext-intended-blockee": "Tulun di naantaban :$1",
-	"blockedtext-contact-blocker-admin": "Milo ko rumomut do $1 toi ko' suai  [[{{MediaWiki:Grouppage-sysop}}|admin]] montok mibooboros kokomoi pangantaban.",
+	"blockedtext-contact-blocker-admin": "Milo ko rumomut do $1 toi ko' suai [[{{MediaWiki:Grouppage-sysop}}|admin]] montok mibooboros kokomoi pangantaban.",
 	"blockedtext-include-details-queries": "Potonudo toinsanan butiran id sawat id suang do poguhatan di winonsoi nu."
 }
