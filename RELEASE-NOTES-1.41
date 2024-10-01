@@ -5,12 +5,33 @@ PHP 8.1 workboard: https://phabricator.wikimedia.org/tag/php_8.1_support/
 PHP 8.2 workboard: https://phabricator.wikimedia.org/tag/php_8.2_support/
 PHP 8.3 workboard: https://phabricator.wikimedia.org/tag/php_8.3_support/
 
-== MediaWiki 1.41.3 ==
+== MediaWiki 1.41.5 ==
 
 THIS IS NOT A RELEASE YET
 
+=== Changes since MediaWiki 1.41.4 ===
+* Localisation updates.
+
+== MediaWiki 1.41.4 ==
+
+This is a maintenance release of the MediaWiki 1.41 branch.
+
+=== Changes since MediaWiki 1.41.3 ===
+* Fix issue related to backport of AbuseFilter patch for T372998.
+
+== MediaWiki 1.41.3 ==
+
+This is a security and maintenance release of the MediaWiki 1.41 branch.
+
 === Changes since MediaWiki 1.41.2 ===
 * Localisation updates.
+* Parser: Deprecate use of mOutput before initialization.
+* Clarify that $wgAllowCrossOrigin only applies to REST.
+* composer.json: Add 5 more ext- to suggests.
+* resources: Fix 404 Not Found for foreign Financial-Times/polyfill-library.
+* ResourceLoader: Fix regression of color mapping in Less.php.
+* ResourceLoader: Upgrade wikimedia/less.php to 4.4.1.
+* SpecialExport: Prevent passing null to strtolower.
 
 == MediaWiki 1.41.2 ==
 
