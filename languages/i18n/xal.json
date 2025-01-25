@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"DannyS712",
 			"Fitoschido",
 			"Huuchin",
@@ -12,7 +11,8 @@
 			"Ukhant Erdemt",
 			"Алия",
 			"З. ӘЙЛЕ",
-			"Хөх толботон"
+			"Хөх толботон",
+			"Matma Rex"
 		]
 	},
 	"tog-underline": "Холвасдин дооһур зурас зуртн:",
@@ -387,7 +387,7 @@
 	"cannotlogoutnow-title": "Мөн ода һарх болмҗ уга",
 	"cannotlogoutnow-text": "$1 ашглх цагт һарх болмҗ уга.",
 	"welcomeuser": "$1, тавта мөрлтн!",
-	"welcomecreation-msg": "Тана бүрткл кегдв.\nТа эврәннь [[Special:Preferences|{{SITENAME}}-н тохрлһан]]  хүврүлхән бичә марттн.",
+	"welcomecreation-msg": "Тана бүрткл кегдв.\nТа эврәннь [[Special:Preferences|{{SITENAME}}-н тохрлһан]] хүврүлхән бичә марттн.",
 	"yourname": "Кергләчин нерн",
 	"userlogin-yourname": "Кергләчин нерн",
 	"userlogin-yourname-ph": "Кергләчин нер орултн",
@@ -649,7 +649,7 @@
 	"anontalkpagetext": "<em> Эннь IP хайгин тооһар тодрхалгдх, бүрткүләд уга IP кергләчин күүндәнә халх болҗана. Нег IP хайгт кедн кергләч негн зерг онгдҗ болх болад зәрм хайгуд үйчлн сольгддг. Кемр Та IP кергләч болхла, бусд кергләчнртә эндүргдшгон төләд [[Special:CreateAccount|бүрткүлтн]] эс гиҗ [[Special:UserLogin|невтртн]]. Бүрткүлснәс мөн IP хайгитн нуух.",
 	"noarticletext": "Одаһин бәәдләр эн халхд текст уга. Та эн халхин нерәр бусд халхст [[Special:Search/{{PAGENAME}}|хәәлт кех]], <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} холвата логмудт хәәлт кеҗ чадҗанат], эс гиҗ [{{fullurl:{{FULLPAGENAME}}|action=edit}} эн халхиг ясврлҗ болна]</span>.",
 	"noarticletext-nopermission": "Одаһин бәәдләр эн халхд текст уга. Та эн халхин нерәр талдан халхст [[Special:Search/{{PAGENAME}}|һарчгар хәәлт кех]], <span class=\"plainlinks\">[{{fullurl:{{#Special:Log}}|page={{FULLPAGENAMEE}}}} холвата логар хәәлт]</span>кеҗ болх, зуг Танд эн халхиг үүскх зөвшәрл уга.",
-	"missing-revision-permission": "#$1 хүвлвр уга болһсн халхд хамата. Та [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} үзх]; делгрңгү медәллиг [{{fullurl:{{#Special:Log}}/delete|page=$3}} уга болһх бүрткләс олҗ болна].",
+	"missing-revision-permission": "<nowiki>#</nowiki>$1 хүвлвр уга болһсн халхд хамата. Та [{{fullurl:{{#Special:Undelete}}|target=$3&timestamp=$2&diff=prev}} үзх]; делгрңгү медәллиг [{{fullurl:{{#Special:Log}}/delete|page=$3}} уга болһх бүрткләс олҗ болна].",
 	"missing-revision": "\"{{FULLPAGENAME}}\" нертә халхин #$1 хүвлвр уга.\n\nЭннь йирдән уга болһсн халхур хуучрсн түүкин холвасиг дахсар үүсдг.\nДелгрңгү медәллиг [{{fullurl:{{#Special:Log}}/delete|page={{FULLPAGENAMEE}}}} уга болһсн бүрткләс үзҗ болна].",
 	"missing-revision-content": "\"$2\" нертә халхин #$1 хүвлврин аһулһиг ацалҗ чадсн уга.",
 	"blocked-notice-logextract": "Эн {{GENDER:$1|кергләч }} ода бөгләлгдсн бәәнә.\nЛавллһна зөрүллтәр бөглән лог деерк хамгин сүүлин немлтиг дор орулв:",
@@ -1489,7 +1489,7 @@
 	"rcfilters-filter-watchlistactivity-seen-description": "Ясвр кеснә хөөн тана орсн халхст һарсн ясврмуд.",
 	"rcfilters-filtergroup-changetype": "Ясврин төрл-зүүл",
 	"rcfilters-filter-pageedits-label": "Халхин ясвр",
-	"rcfilters-filter-pageedits-description": "Вики аһулһ, келлцән, категорин тәәлврт ясвр кех...",
+	"rcfilters-filter-pageedits-description": "Вики аһулһ, келлцән, әңгллин тәәлврт ясвр кех...",
 	"rcfilters-filter-newpages-label": "Халхс үүскх",
 	"rcfilters-filter-newpages-description": "Шин халхс үүскх ясврмуд.",
 	"rcfilters-filter-categorization-label": "Әңгллин ясврмуд",
@@ -2222,7 +2222,7 @@
 	"addedwatchexpiryhours-talk": "\"[[:$1]]\" келлцән болн түүнлә холвата халх тана [[Special:Watchlist|кинҗәх җигсәлтд]]-д кедүкн цагин турш немгдв.",
 	"addedwatchexpirytext": "\"[[:$1]]\" халх болн түүнә келлцәнә халхиг $2 хуһцанд Тана [[Special:Watchlist|кинҗәх җигсәлт]]-д немгдв.",
 	"addedwatchexpirytext-talk": "\"[[:$1]]\" келлцән болн түүнлә холвата халх $2 тана [[Special:Watchlist|кинҗәх җигсәлт]]-д {{GRAMMAR:accusative|$2}} хуһцаһар немгдв.",
-	"addedwatchindefinitelytext": "\"[[:$1]]\" халх болн түүнә келлцәнә халх тана [[Special:Watchlist|кинҗәх җигсәлт]]-д мөңкинд немгдв.",
+	"addedwatchindefinitelytext": "\"[[:$1]]\" халх болн түүнә келлцәнә халх тана [[Special:Watchlist|кинҗәх җигсәлт]]-д кизәрго хуһцаһар немгдв.",
 	"addedwatchindefinitelytext-talk": "\"[[:$1]]\" келлцән болн түүнлә холвата халх тана [[Special:Watchlist|кинҗәх җигсәлтд]] мөңкинд немгдв.",
 	"removewatch": "Кинлтин җигсәлтәс хасх",
 	"removedwatchtext": "«[[:$1]]» халх т\\Тана [[Special:Watchlist|Кинлтин җигсәлт]]-әс күүндәтә хамт хасгдв.",

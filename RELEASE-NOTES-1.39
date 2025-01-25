@@ -4,13 +4,147 @@ PHP 8.0 workboard: https://phabricator.wikimedia.org/tag/php_8.0_support/
 PHP 8.1 workboard: https://phabricator.wikimedia.org/tag/php_8.1_support/
 PHP 8.2 workboard: https://phabricator.wikimedia.org/tag/php_8.2_support/
 PHP 8.3 workboard: https://phabricator.wikimedia.org/tag/php_8.3_support/
+PHP 8.4 workboard: https://phabricator.wikimedia.org/tag/php_8.4_support/
+
+== MediaWiki 1.39.12 ==
+
+This is a maintenance release of the MediaWiki 1.39 branch.
+
+=== Changes since 1.39.11 ===
+* Localisation updates.
+* (T382987) $wgDnsBlacklistUrls now defaults to an empty array. See the comment
+  in the "Configuration changes for system administrators" section.
+
+== MediaWiki 1.39.11 ==
+
+This is a maintenance release of the MediaWiki 1.39 branch.
+
+=== Changes since 1.39.10 ===
+* Localisation updates.
+* (T377450) [DatabaseUpdater] Don't interact with updatelog on virtual domains.
+* (T377916) specials: Avoid passing null to str_replace().
+* (T378006, T372500) AutoLoader: Use require_once rather than require.
+* (T378304) GlobalIdGenerator: Update str_getcsv() call for PHP 8.4.
+* Upgrade php-session-serializer from 2.0.1 to 3.0.0.
+* Upgrade xmp-reader from 0.8.6 to 0.9.2.
+* (T372569) installer: Consistently use double quotes when outputting settings.
+* (T362829) Correct range error in regexp of formatmetadata.
+* (T381068) ButtonAuthenticationRequest: Add AllowDynamicProperties directive.
+
+== MediaWiki 1.39.10 ==
+
+This is a maintenance release of the MediaWiki 1.39 branch.
+
+=== Changes since 1.39.9 ===
+* Fix issue related to backport of AbuseFilter patch for T372998.
+
+== Mediawiki 1.39.9 ==
+
+This is a security and maintenance release of the MediaWiki 1.39 branch.
+
+=== Changes since 1.39.8 ===
+* Localisation updates.
+* (T303007) skins: Fix Skin::buildSidebar to not share cache between skins.
+* (T367918) When using the 'runMaintenance' method in a
+  LoadExtensionSchemaUpdates hook handler, only the script's class name is
+  required, not its path.
+* Clarify that $wgAllowCrossOrigin only applies to REST.
+* (T370380) installer: Support MW_SKIP_EXTERNAL_DEPENDENCIES in update.php.
+* composer.json: Add 5 more ext- to suggests.
+* resources: Fix 404 Not Found for foreign Financial-Times/polyfill-library.
+* ResourceLoader: Fix regression of color mapping in Less.php.
+* ResourceLoader: Upgrade wikimedia/less.php to 4.4.1.
+* SpecialExport: Prevent passing null to strtolower.
+
+== MediaWiki 1.39.8 ==
+
+This is a maintenance release of the MediaWiki 1.39 branch.
+
+=== Changes since 1.39.7 ===
+* Localisation updates.
+* tests: Skip failing tests on php8.2 (and make pass).
+* (T326480) ApiResult: Make array ordering consistent across PHP versions.
+* (T352789, T287972) build: Raise TestingAccessWrapper from 2.0.0 to 3.0.0.
+* (T326478) tests: Create new classes to hold dynamic properties in auth tests.
+* (T326478) tests: Avoid dynamic properties in AuthenticationProvider Test.
+* (T326466) Introduce and use DynamicPropertyTestHelper.
+* tests: Skip failing tests on php8.3 (and make pass).
+* (T352910) tests: Use TestingAccessWrapper::newFromClass in session tests.
+* (T326478) tests: Avoid dynamic properties in auth tests.
+* (T326479, T361985) StatusValue: Allow passing arbitrary data to augment
+  result.
+* tests: Remove dead code from WikiPageDbTest::assertPreparedEditNotEquals.
+* (T326478) tests: Avoid dynamic properties in SessionManagerTest.
+* (T361990) Upgrading wikimedia/parsoid (v0.16.3 => v0.16.4).
+* (T357760) Use i18n strings for truncated subpage message in SpecialMovePage.
+* ArticleTest: Skip testGetOrSetOnNewProperty() if PHP >= 8.2.
+* (T361982) Update wikimedia/less.php from 3.1.0 to 3.2.1.
+* debug: Update PsySH 0.11.1 -> 0.12.3.
+* (T361991) Fix slash-delimited regex from CLI on maintenence/grep.php.
+* (T362078) Improve RestAPIAdditionalRouteFiles path expansion.
+* (T352695) tests: Only set $dbSetup if setupTestDB() ends without throwing.
+* (T302186) Add title cache for Title::newMainPage().
+* objectcache: Fix flaky WANObjectCacheTest::testLockTSESlow case.
+* (T362272) api: Replace null $httpCode by 0 in ApiBase::dieWithErrorOrDebug.
+* (T150647, T216682) Make EncryptedPassword work with Argon2Password.
+* (T327220) Special:ApiHelp: Move widths and floats in CSS to media query.
+* (T364270) Fix long param names overlapping docs in API help pages.
+* MaintenanceRunner.php: Add trailing newline to error message.
+* wrapOldPasswords: Improve progress output and decrease batch size.
+* (T361367) ApiFeedWatchlist: Fix handling of array parameters.
+* (T132418) ResourceLoader: Add 1min grace via stale-while-revalidate
+  Cache-Control.
+* (T366130) EncryptedPassword: Store default parameters as strings.
+* Name the PagerTools array entries to allow hooks to unset them.
 
 == MediaWiki 1.39.7 ==
 
-THIS IS NOT A RELEASE YET
+This is a security and maintenance release of the MediaWiki 1.39 branch.
 
 === Changes since 1.39.6 ===
 * Localisation updates.
+* (T334992) Headings in the license pickers should not be selected.
+* (T353929) ActiveUsersPager: Count actions only once.
+* composer: Use @php instead of php.
+* (T326065) Indent JsonContent using tabs.
+* (T354541) authmanager: Improve AuthenticationRequest docs.
+* (T355017) Add missing space in Special:RecentChangesLinked.
+* (T355003) composer.json Add ext-bcmath and ext-gmp to suggests.
+* PHPVersionCheck: Update text to match currently supported upstream PHP
+  versions (8.1+).
+* (T354045) API: mark HTML output as non-cacheable.
+* (T355530) filerepo: Fix img_major_mime for files with a non-standard
+  extensions.
+* (T355530) MimeAnalyzer: Add @since to isValidMajorMimeType.
+* (T317489, T319202) Mark some parserTests on talk pages Parsoid only on
+  REL1_39.
+* (T350594) Update wikimedia/parsoid to 0.16.3.
+* (T352554) ZhConverter: Fix language variant fallback chain.
+* (T357668) Parser::getExternalLinkAttribs: Don't set rel attribute to null.
+* LockManagerGroupIntegrationTest: Remove test depending on DBLockManager.
+* (T357808) LinkRendererTest: Add missing import for LinkTarget.
+* (T353305) ApiResetPassword: Allow both user and email parameters to be passed
+  for reset.
+* (T358949) updateCollation: Explicitly cast $scale to int.
+* (T359055) api: Improve linking of language codes lists in top level i18n
+  messages.
+* (T359294) Make sure MovePage::isValidFileMove matches UploadBase::getTitle.
+* (T230245) Respect $maxConcurrency when queuing async FileOps.
+* (T352554) Follow-up "ZhConverter: Fix language variant fallback chain".
+* (T292237, T317451) build: Restore Doxygen output for MediaWiki release tags.
+* (T324903) HistoryPager: Add #[AllowDynamicProperties].
+* (T360850) Update Apache config syntax in .htaccess files.
+* (T309714, T354274) mime: Add support for 'font/woff' and 'font/woff2' mime
+  type.
+* (T309714) mime: Make test cases use data provider.
+* (T331608) installer: Bear with schema drift caused by running old updater.
+* docs: Remove use of $IP from mwdocgen.php.
+* (T317451) build: Restore Doxygen output for MediaWiki release tags (take 3).
+* docs: Set stable permalink on markdown files.
+* (T357019) allow maintenance/deleteBatch.php to accept page ID.
+* (T355538, CVE-2024-34507) SECURITY: XSS in edit summary parser.
+* (T357760, CVE-2024-34506) SECURITY: Denial of service vector via GET request
+  to Special:MovePage on pages with thousands of subpages.
 
 == MediaWiki 1.39.6 ==
 
@@ -314,6 +448,11 @@ Some specific notes for MediaWiki 1.39 upgrades are below:
 For notes on 1.38.x and older releases, see HISTORY.
 
 === Configuration changes for system administrators in 1.39 ===
+* (T382987) The default value of 'http.dnsbl.sorbs.net.' in $wgDnsBlacklistUrls
+  has been removed. This is because sorbs.net have stopped providing their
+  services. This means that if you have $wgEnableDnsBlacklist set to true, it
+  will no longer provide any value unless you add other servers to
+  $wgDnsBlacklistUrls.
 
 ==== New configuration ====
 * $wgAutoCreateTempUser – This configures automatic user creation on page save.
@@ -419,13 +558,13 @@ For notes on 1.38.x and older releases, see HISTORY.
 * Updated wikimedia/html-formatter from 3.0.1 to 4.0.3.
 * Updated wikimedia/ip-set from 3.0.0 to 3.1.0.
 * Updated wikimedia/minify from 2.2.6 to 2.3.0.
-* Updated wikimedia/php-session-serializer from 2.0.0 to 2.0.1.
+* Updated wikimedia/php-session-serializer from 2.0.0 to 3.0.0.
 * Updated wikimedia/remex-html from 3.0.2 to 3.0.3.
 * Updated wikimedia/running-stat from 1.2.1 to 2.1.0.
 * Updated wikimedia/scoped-callback from 3.0.0 to 4.0.0.
 * Updated wikimedia/services from 2.0.1 to 3.0.0.
 * Updated wikimedia/timestamp from 3.0.0 to 4.1.1.
-* Updated wikimedia/xmp-reader from 0.8.1 to 0.8.6.
+* Updated wikimedia/xmp-reader from 0.8.1 to 0.9.2.
 
 ===== Changed development-only external libraries =====
 * Updated composer/spdx-licenses from 1.5.5 to 1.5.7.

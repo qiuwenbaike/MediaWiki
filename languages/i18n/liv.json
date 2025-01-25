@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Andrijko Z.",
 			"Erdemaslancan",
 			"Kengšepā",
@@ -209,8 +208,8 @@
 	"currentrev-asof": "Perri redaktsij: $1",
 	"revisionasof": "Redaktsij",
 	"revision-info": "Redaktsij āigald $1 kȭlbatijiz $2 pierrõ",
-	"previousrevision": "Juo vaņīmi redaktsij",
-	"nextrevision": "Jo ūž redaktsij",
+	"previousrevision": "← Juo vaņīmi redaktsij",
+	"nextrevision": "Jo ūž redaktsij →",
 	"currentrevisionlink": "Perri redaktsij",
 	"cur": "perri",
 	"last": "jedmõli",
@@ -369,7 +368,7 @@
 	"watch": "Vaņțõl iļ sīe",
 	"watchthispage": "Vaņ iļ siedā līedpūoltõ",
 	"unwatch": "Lopta iļ-vaņtlimi",
-	"watchlist-details": " {{PLURAL:$1|$1 lēḑ|$1 līedtõ}} ātõ iļ-vaņtlimiz nimkēras,  bäz luggõmõt nõvpidāmiz-līedidi.",
+	"watchlist-details": " {{PLURAL:$1|$1 lēḑ|$1 līedtõ}} ātõ iļ-vaņtlimiz nimkēras, bäz luggõmõt nõvpidāmiz-līedidi.",
 	"watchlist-hide": "↓Vaŗț",
 	"watchlist-options": "Iļ-vaņtlimiz nimkēra pie-lēmizt",
 	"watching": "Vaņtlimi iļ sīe...",
@@ -520,7 +519,7 @@
 	"tooltip-summary": "Kēratigid lītõ kubbõ-võtāmi",
 	"pageinfo-toolboxlink": "Līed dattõd",
 	"previousdiff": "← Jedmõli redaktsij",
-	"nextdiff": "Jo ūd redigīerimizt",
+	"nextdiff": "Jo ūd redigīerimizt →",
 	"file-info-size": " $1 × $2 piksõlt, bildā sūrit: $3, MIME tīp: $4",
 	"file-nohires": "Sīestõ sūrimmõ bildõ äb ūo.",
 	"svg-long-desc": "SVG fail, origināli sūrit  $1 × $2 piksõlt, fail sūrit: $3",

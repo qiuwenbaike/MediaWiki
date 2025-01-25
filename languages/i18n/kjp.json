@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"DannyS712",
 			"Ninjastrikers",
 			"Rul1902",
@@ -311,7 +310,7 @@
 	"revisionasof": "$1 မူးၮီခါ့ မူ",
 	"revision-info": "$1 မူႋသင့်ၮှ် {{GENDER:$6|$2}}$7 ထါင်အင်းတင်ၮါင်",
 	"previousrevision": "← မူလါင်းလီ",
-	"nextrevision": "သင့်ထုက် ဆ်ုအင်ႋတင်ႋ",
+	"nextrevision": "သင့်ထုက် ဆ်ုအင်ႋတင်ႋ →",
 	"currentrevisionlink": "လါင်းခါင့် ထါင်အ်ုထိုဝ်",
 	"cur": "အ်ုခါ့ယိုဝ်",
 	"next": "အ်ုမေံယာ့ခဝ့်",
@@ -722,8 +721,8 @@
 	"pageinfo-contentpage-yes": "မွာဲ",
 	"pageinfo-view-protect-log": "မ်ုယောဝ်ႋလိက်မေံၜၠါ်ယိုဝ် ဆ်ုခ်ုဝုင်ႋထလိက်မါဏါင်း",
 	"patrol-log-page": "အင်းခိုဝ်ဆၟိုဝ် ဆ်ုမာၮါင်း",
-	"previousdiff": "အ်ုလင်လီ ဆ်ုအင်ႋတင်ႋ",
-	"nextdiff": "အင်းတင်ႋအ်ုသင့်ထုက်",
+	"previousdiff": "← အ်ုလင်လီ ဆ်ုအင်ႋတင်ႋ",
+	"nextdiff": "အင်းတင်ႋအ်ုသင့်ထုက် →",
 	"widthheightpage": "$1 × $2, {{PLURAL:$3|လိက်မေံၜၠါ်|လိက်မေံၜၠါ်လ်ုဖး}} $3 ၮါင်း",
 	"file-info-size": "$1 × $2 pixels, ဖိုင်ႋအ်ုခိင်ႋၯင် - $3, MIME အ်ုမိင်ပ္ကုံ $4",
 	"file-info-size-pages": "$1 × $2 pixels, ဖိုင်ႋအ်ုခိင့်ၯင်: $3, MIME အ်ုကုဂ်အ်ုကါင်: $4, {{PLURAL:$5|လိက်မေံ|လိက်မေံလ်ုဖး}} $5 ၮါင်း",

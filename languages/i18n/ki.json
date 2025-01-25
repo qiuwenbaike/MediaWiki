@@ -42,11 +42,10 @@
 	"october-gen": "mweri wa ikumi",
 	"november-gen": "mweri wa ikumi na imwe",
 	"december-gen": "mweri wa ikũmi na igiri",
-	"cactions": "makiria",
-	"nstab-image": "failo",
-	"nstab-help": "handu ha uteithio",
-	"action-delete": "Futa",
-	"move": "thie",
-	"movereason": "gitumi",
+	"cactions": "Makiria",
+	"nstab-image": "Failo",
+	"nstab-help": "Handu ha uteithio",
+	"move": "Thie",
+	"movereason": "Gitumi:",
 	"skin-action-delete": "Futa"
 }

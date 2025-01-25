@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Fitoschido",
 			"Quintino Lopes Castro Tavares",
 			"Waldyrious"
@@ -309,6 +308,7 @@
 	"template-protected": "(protejidu)",
 	"template-semiprotected": "(semi-protegidu)",
 	"permissionserrors": "Eru di permison",
+	"postedit-temp-created-label": "Konta temporáriu",
 	"viewpagelogs": "Odja rejistus des pájina",
 	"currentrev": "Verson atual",
 	"currentrev-asof": "Verson atual na $1",

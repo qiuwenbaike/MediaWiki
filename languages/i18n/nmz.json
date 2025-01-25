@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"GastonJeremiah"
 		]
 	},
@@ -60,7 +59,7 @@
 	"pagecategories": "{{PLURAL:$1|Hawu|Hawii}}",
 	"category_header": "wadii ba' $1 hawii",
 	"subcategories": "Huwii kayii",
-	"category-media-header": "Mediya hawui hii bah \"$1\" nin hii.",
+	"category-media-header": "Mediya hawui hii bah \"$1\" nin hii",
 	"category-empty": "<em>Hawui kunah kpahn wadii Hii la mediyaŋu.</em>",
 	"hidden-categories": "{{PLURAL:$1|Foɦmgan hawu|Foɦmgan hawii}}",
 	"hidden-category-category": "Foɦmgan hawii",
@@ -150,7 +149,7 @@
 	"confirmable-no": "Ĥaai",
 	"red-link-title": "$1 (wadvaagu kpaɦ)",
 	"nstab-main": "Wadga",
-	"nstab-user": "{{GENDER:$1|wadga zaŋta}}",
+	"nstab-user": "{{GENDER:$1|Wadga zaŋta}}",
 	"nstab-media": "Media wadga",
 	"nstab-special": "Wadg hɔmga",
 	"nstab-project": "Ŋmɛɛgb wadga",
@@ -238,7 +237,7 @@
 	"currentrev-asof": "Lagiib kwɛkwɛɛlb wo $1",
 	"revisionasof": "Manyiib wo $1 ba' le",
 	"revision-info": "Lagiib ʋan heer bii $1 jugun l'bahrn {{GENDER:$6|}} nn $7",
-	"previousrevision": "Lagiib kpemb",
+	"previousrevision": "← Lagiib kpemb",
 	"nextrevision": "Lagiib kwɛɛlb →",
 	"currentrevisionlink": "Lagiib kwɛkwɛɛlb",
 	"cur": "kwɛɛlm",
@@ -475,7 +474,7 @@
 	"pageinfo-toolboxlink": "Wadga jugun gwɛɛt",
 	"patrol-log-page": "Hɛb kalaŋa kaan kaltb",
 	"previousdiff": "← Manyib kpeem",
-	"nextdiff": "Manyib kwɛɛlb",
+	"nextdiff": "Manyib kwɛɛlb →",
 	"widthheightpage": "$1 × $2, $3 wadga{{PLURAL:$3||s}}",
 	"file-info-size": "$1 × $2 piksl, tiim wadga vɔku: $3, MIME daar: $4",
 	"file-info-size-pages": "$1 × $2 piksŋt, wadga vͻku: $3, MIME daar: $4, $5 {{PLURAL:$5|wadga|wadii}}",

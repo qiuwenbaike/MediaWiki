@@ -17,7 +17,7 @@
 	"yourname": "Dzina ḽa mushumisi:",
 	"yourpassword": "Phasiwede:",
 	"changepassword": "Shandukisani phasiwede",
-	"username": "Dzina ḽa mushumisi:",
+	"username": "{{GENDER:$1|Dzina ḽa mushumisi}}:",
 	"newpages-username": "Dzina ḽa mushumisi:",
 	"version-other": "Zwiṅwe"
 }

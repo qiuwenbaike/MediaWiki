@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Atabek",
 			"DannyS712",
 			"GaiJin",
@@ -13,7 +12,9 @@
 			"Vlad5250",
 			"Zpizza",
 			"아라",
-			"Zolgoyo"
+			"Zolgoyo",
+			"Ajiniyaz Nurniyazov",
+			"Matma Rex"
 		]
 	},
 	"tog-underline": "Siltemeniñ astın sız:",
@@ -113,7 +114,7 @@
 	"article": "Mağlumat beti",
 	"newwindow": "(jaña terezede)",
 	"cancel": "Boldyrmau",
-	"moredotdotdot": "Köbirek…",
+	"moredotdotdot": "Köbirek...",
 	"mypage": "Jeke betim",
 	"mytalk": "Talqılawım",
 	"anontalk": "IP talqılawı",
@@ -408,7 +409,7 @@
 	"last": "soñ.",
 	"page_first": "alğaşqısına",
 	"page_last": "soñğısına",
-	"histlegend": "Aýırmasın bölektew: salıstırmaq nusqalarınıñ qosw közderin belgilep <Enter> pernesin basıñız, nemese tömendegi batırmanı nuqıñız.<br />\nŞarttı belgiler: (ağım.) = ağımdıq nusqamen aýırması,\n(soñ.) = aldıñğı nusqamen aýırması, ş = şağın öñdeme",
+	"histlegend": "Aýırmasın bölektew: salıstırmaq nusqalarınıñ qosw közderin belgilep \"Enter\" pernesin basıñız, nemese tömendegi batırmanı nuqıñız.<br />\nŞarttı belgiler: (ağım.) = ağımdıq nusqamen aýırması,\n(soñ.) = aldıñğı nusqamen aýırması, ş = şağın öñdeme",
 	"histfirst": "Eñ alğaşqısına",
 	"histlast": "Eñ soñğısına",
 	"historysize": "($1 baýt)",
@@ -1069,8 +1070,8 @@
 	"ipb-unblock": "Qatıswşı atın nemese IP mekenjaýın buğattamaw",
 	"ipb-blocklist": "Bar buğattawlardı qaraw",
 	"block-expiry": "Merzimi bitpek:",
-	"unblockip": "Qatıswşını buğattamaw",
-	"unblockiptext": "Tömendegi pişindi aldındağı IP mekenjaýımen ne atımen buğattalğan qatıswşığa jazw qatınawın qalpına keltiriwi üşin qoldanıñız.",
+	"unblockip": "Paydalanıwshını bloktan shıǵarıw",
+	"unblockiptext": "Aldın bloklanǵan IP adres yamasa akkaunt ushın redaktorlaw múmkinshiligin qayta tiklew ushın tómendegi formanı paydalanıńız.",
 	"ipusubmit": "Osı mekenjaýdı buğattamaw",
 	"unblocked": "[[User:$1|$1]] buğattawı öşirildi",
 	"unblocked-id": "$1 buğattaw alastaldı",
@@ -1291,8 +1292,8 @@
 	"filedelete-old-unregistered": "«$1» faýldıñ keltirilgen tüzetwi derekqorda joq.",
 	"filedelete-current-unregistered": "«$1» faýldıñ keltirilgen atawı derekqorda joq.",
 	"filedelete-archive-read-only": "«$1» murağat qaltasına veb-server jaza almaýdı.",
-	"previousdiff": "← Aldıñğı aýırm.",
-	"nextdiff": "Kelesi aýırm. →",
+	"previousdiff": "← Aldıñğı aýırm",
+	"nextdiff": "Kelesi aýırm →",
 	"mediawarning": "'''Qulaqtandırw''': Bul faýl türinde qaskünemdi kodı bar bolwı ıqtïmal; bunı jegip jüýeñizge zïyan keltirwiñiz mümkin.",
 	"imagemaxsize": "Sïpattaması betindegi swrettiñ mölşerin şektewi:",
 	"thumbsize": "Nobaý mölşeri:",

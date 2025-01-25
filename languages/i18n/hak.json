@@ -21,7 +21,7 @@
 			"唐吉訶德的侍從",
 			"飞舞回堂前",
 			"아라",
-			"Amire80"
+			"Matma Rex"
 		]
 	},
 	"tog-underline": "Lièn-chiap kâ-tái sien:",
@@ -378,7 +378,7 @@
 	"createacct-benefit-body1": "$1-chhṳ phiên-siá",
 	"createacct-benefit-body2": "$1-ya̍p",
 	"createacct-benefit-body3": "khiûn-khì $1-chak kung-hien-ngìn",
-	"badretype": "Ngì só khim-ngi̍p ke me̍t-ma pin m̀  siông-thùng.",
+	"badretype": "Ngì só khim-ngi̍p ke me̍t-ma pin m̀ siông-thùng.",
 	"userexists": "汝所填入嘅用戶名稱已經存在。\n請另選一隻名稱。",
 	"loginerror": "Tên-ngi̍p chhâ-chho",
 	"createacct-error": "Khôi fu-thèu chhut chhâ-chho",
@@ -550,8 +550,6 @@
 	"invalid-content-data": "無效嘅數據內容",
 	"content-model-wikitext": "Wki ngî-fap",
 	"content-model-text": "sùn vùn-sṳ",
-	"content-model-javascript": "JavaScript",
-	"content-model-css": "CSS",
 	"post-expand-template-inclusion-warning": "警告: 包含模板大小過大。\n一兜模板將毋會包含。",
 	"post-expand-template-inclusion-category": "模板包含上限已經超過嘅頁面",
 	"post-expand-template-argument-warning": "警告: 邇隻頁面有最少一隻模參數有過大擴展大細。\n邇兜參數會分略過。",
@@ -888,7 +886,6 @@
 	"nbytes": "$1 sṳ-chiet",
 	"ncategories": "$1隻分類",
 	"nlinks": "$1隻鏈接",
-	"nmembers": "$1-chak sṳ̀n-yèn",
 	"nrevisions": "$1隻修訂版本",
 	"specialpage-empty": "本報告無結果。",
 	"lonelypages": "孤立頁面",

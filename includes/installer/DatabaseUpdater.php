@@ -565,6 +565,12 @@ abstract class DatabaseUpdater {
 	 * @return bool
 	 */
 	public function updateRowExists( $key ) {
+		// Return false if the updatelog table does not exist. This can occur if performing schema changes for tables
+		// that are on a virtual database domain.
+		if ( !$this->db->tableExists( 'updatelog', __METHOD__ ) ) {
+			return false;
+		}
+
 		$row = $this->db->selectRow(
 			'updatelog',
 			# T67813
@@ -572,7 +578,6 @@ abstract class DatabaseUpdater {
 			[ 'ul_key' => $key ],
 			__METHOD__
 		);
-
 		return (bool)$row;
 	}
 
@@ -590,6 +595,12 @@ abstract class DatabaseUpdater {
 	 * @param string|null $val [optional] Value to insert along with the key
 	 */
 	public function insertUpdateRow( $key, $val = null ) {
+		// We cannot insert anything to the updatelog table if it does not exist. This can occur for schema changes
+		// on tables that are on a virtual database domain.
+		if ( !$this->db->tableExists( 'updatelog', __METHOD__ ) ) {
+			return;
+		}
+
 		$this->db->clearFlag( DBO_DDLMODE );
 		$values = [ 'ul_key' => $key ];
 		if ( $val && $this->canUseNewUpdatelog() ) {
@@ -1058,14 +1069,14 @@ abstract class DatabaseUpdater {
 	 *
 	 * @since 1.32
 	 * @param string $class Maintenance subclass
-	 * @param string $script Script path and filename, usually "maintenance/fooBar.php"
+	 * @param string $unused Unused, kept for compatibility
 	 */
-	protected function runMaintenance( $class, $script ) {
-		$this->output( "Running $script...\n" );
+	protected function runMaintenance( $class, $unused = '' ) {
+		$this->output( "Running $class...\n" );
 		$task = $this->maintenance->runChild( $class );
 		$ok = $task->execute();
 		if ( !$ok ) {
-			throw new RuntimeException( "Execution of $script did not complete successfully." );
+			throw new RuntimeException( "Execution of $class did not complete successfully." );
 		}
 		$this->output( "done.\n" );
 	}

@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"AshLin",
 			"Cliffa fernandes",
 			"Darshan kandolkar",
@@ -198,7 +197,7 @@
 	"privacy": "गुप्ततायेचें धोरण",
 	"privacypage": "Project:गुप्ततायेचें धोरण",
 	"badaccess": "परवांगेची चूक",
-	"badaccess-group0": "तुवें मागिल्लें कार्य करुंक तुमकां परवांगी ना.",
+	"badaccess-group0": "तुवें मागिल्लें कार्य करुंक तुका परवांगी ना.",
 	"badaccess-groups": "तुवें मागिल्लें कार्य मात {{PLURAL:$2|ह्या जम्याचे|हातूंतले एके जम्याचे}} वापरप्यांक परवांगी आसा: $1",
 	"versionrequired": "मिडयाविकीचें $1 आवृत्ती जाय",
 	"versionrequiredtext": "हें पान वापरुंक मिडीयाविकीचें $1 वर्शन जाय.[[Special:Version|version page]] पान पळय.",
@@ -659,7 +658,7 @@
 	"rcfilters-filter-logactions-description": "कारभारी कार्य, खातें रचप, पाना काडून उडवप, उपलोड्स...",
 	"rcfilters-hideminor-conflicts-typeofchange-global": "\"किरकोळ संपादन\" गाळणेचें किजील एक वो अदीक \"बदलाचो प्रकार\" गाळणेक आसा, कित्याक थोड्या बदलाचे प्रकारांक \"किरकोळ\" म्हण नेमूंक जायना. किजिलाच्यो गाळण्यो क्रियाशील गाळणेच्या क्षेत्रांत वयर खुणायल्यात.",
 	"rcfilters-hideminor-conflicts-typeofchange": "थोड्या बदलाचे प्रकारांक \"किरकोळ\" म्हण नेमूंक जायना, ह्या खातीर हे गाळणेक फुडें येवपी बदलपाचे प्रकार गाळणेंत किजील आसा: $1",
-	"rcfilters-typeofchange-conflicts-hideminor": "ह्या \"बदलाचो प्रकाराक\" गाळणेचें किजील  आसा \"किरकोळ संपादन\"  गाळणेक. थोड्या बदलाचे प्रकारांक \"किरकोळ\" म्हण नेमूंक जायना.",
+	"rcfilters-typeofchange-conflicts-hideminor": "ह्या \"बदलाचो प्रकाराक\" गाळणेचें किजील आसा \"किरकोळ संपादन\" गाळणेक. थोड्या बदलाचे प्रकारांक \"किरकोळ\" म्हण नेमूंक जायना.",
 	"rcfilters-filtergroup-lastrevision": "Akherchim uzollnni",
 	"rcfilters-filter-lastrevision-label": "सगळ्यावन नवी उजळणी",
 	"rcfilters-filter-lastrevision-description": "एका पानाक फकत निमाणें बदल",
@@ -913,7 +912,7 @@
 	"whatlinkshere-next": "{{PLURAL:$1|फुडलें|फुडलें $1}}",
 	"whatlinkshere-links": "← दुवे",
 	"whatlinkshere-hideredirs": "$1 पुनर्निर्देशन",
-	"whatlinkshere-hidetrans": "$1 दुरास्थ-समावेस",
+	"whatlinkshere-hidetrans": "संदर्भ-आसपाव लिपय",
 	"whatlinkshere-hidelinks": "$1 दुवे",
 	"whatlinkshere-hideimages": "$1 फायलींचे दुवे",
 	"block": "वापरप्याक आडाय",
@@ -1064,7 +1063,7 @@
 	"just-now": "आताच",
 	"hours-ago": "$1 {{PLURAL:$1|वर|वरां}} आदीं",
 	"minutes-ago": "$1 {{PLURAL:$1|मिनूट|मिणटां}} आदीं",
-	"bad_image_list": "सरुपण सकयले भाशेन आसाः फक्त वळेरेंतल्यान विशयांचो (*न सुरु जावपी वळी) विचार जाला वळी वयली पयलो दुवो ही वायट फायलीक दुवो ही वायट फायलीक दुवो आसूंक जाय. ते लायनीवेल्यो ताचे उपरांतच्यो खंयच्योय दुव्यो ह्यो आडवाद अशो धरतात म्हळ्यार जंय फायल  इन लायन आसूं येता अशी पानां.",
+	"bad_image_list": "सरुपण सकयले भाशेन आसाः फक्त वळेरेंतल्यान विशयांचो (*न सुरु जावपी वळी) विचार जाला वळी वयली पयलो दुवो ही वायट फायलीक दुवो ही वायट फायलीक दुवो आसूंक जाय. ते लायनीवेल्यो ताचे उपरांतच्यो खंयच्योय दुव्यो ह्यो आडवाद अशो धरतात म्हळ्यार जंय फायल इन लायन आसूं येता अशी पानां.",
 	"metadata": "मेटाडॅटा",
 	"metadata-help": "ह्या फायलीन चड म्हायती आसा, घडये ही फायल रचताना वापरिल्ल्या स्कॅनर वा कॅमेरा कडल्यान ही मेळ्ळ्या आसुंये. जर ही फायल बदल्ल्या जाल्यार ही म्हायती नव्या फायलींकडे जुळची ना असो दुबाव आसा.",
 	"metadata-fields": "जेन्ना मेटाडेटा टेबल कोसळटा तेन्ना ह्या संदेशांत आसपाव केल्लीं मेटाडेटाची चित्ररूपां दर्शक पानांत आसपावतलीं बाकीचीं पूर्वनिर्धारीत रितीन लिपून उरतलीं\n* make\n* model\n* datetimeoriginal\n* exposuretime\n* fnumber\n* isospeedratings\n* focallength\n* artist\n* copyright\n* imagedescription\n* gpslatitude\n* gpslongitude\n* gpsaltitude",

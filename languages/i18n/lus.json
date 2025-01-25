@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"DannyS712",
 			"Fitoschido",
 			"Lpachuau",
@@ -252,7 +251,6 @@
 	"nstab-project": "Project phek",
 	"nstab-image": "File",
 	"nstab-mediawiki": "Thuthawn",
-	"nstab-template": "Template",
 	"nstab-help": "Ṭanpuina phek",
 	"nstab-category": "Pawl",
 	"mainpage-nstab": "Phekpui",
@@ -488,8 +486,6 @@
 	"invalid-content-data": "Kentel phal loh thil",
 	"content-model-wikitext": "wikithü",
 	"content-model-text": "thutluang",
-	"content-model-javascript": "JavaScript",
-	"content-model-css": "CSS",
 	"post-expand-template-inclusion-warning": "'''Vaukhanna:''' Siamsa telh a lian leh lutuk.\nSiamsa ţhenkhat hmaih a ni ang.",
 	"post-expand-template-inclusion-category": "Siamsa telh theih lenzawng khûmna phêkte",
 	"post-expand-template-argument-warning": "'''Vaukhanna:''' He phekah hian siamsa kawng kaihparh theih lenzawng nei lian leh lutuk pakhat tal a awm a ni.\nHeng kawngte hi hmaih mai tur.",
@@ -1350,8 +1346,8 @@
 	"markedaspatrollederror": "Vil anga chhinchhiah theih a ni lo",
 	"patrol-log-page": "Vil chhinchhiahna",
 	"filedeleteerror-long": "Taksa paih tum laiin buaina a lo thleng\n\n$1",
-	"previousdiff": "←Siamţhatna hlui zâwk",
-	"nextdiff": "Siamţhatna thar zâwk→",
+	"previousdiff": "← Siamţhatna hlui zâwk",
+	"nextdiff": "Siamţhatna thar zâwk →",
 	"widthheightpage": "$1 × $2, $3 {{PLURAL:$3|phêk|phêkte}}",
 	"file-info-size": "$1 × $2 pixel, taksa lenzawng: $3, MIME chi: $4",
 	"file-nohires": "A aia fiahin kan ti thei lo",

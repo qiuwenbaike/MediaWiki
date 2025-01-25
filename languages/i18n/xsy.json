@@ -3,7 +3,6 @@
 		"authors": [
 			"1233qwer1234qwer4",
 			"Akamycoco",
-			"Amire80",
 			"Lalotahes",
 			"Jack who built the house"
 		]
@@ -601,7 +600,7 @@
 	"pageinfo-toolboxlink": "ray ye:myen kakra:aman",
 	"pageinfo-contentpage": "nom Somepe: ka pinanabih ray yemien",
 	"pageinfo-contentpage-yes": "'ihi'",
-	"previousdiff": "’ima tatini’ sowiti’ pinpienji",
+	"previousdiff": "← ’ima tatini’ sowiti’ pinpienji",
 	"nextdiff": "’ima SaSo’ bienji →",
 	"widthheightpage": "$1 × $2, $3 {{PLURAL:$3| biyae’}}",
 	"file-info-size": "$1 × $2 kakita’an ka hinoba:ang ， tang’an kinsopaloy：$3，MIME Sinrahoe’：$4",
@@ -626,7 +625,7 @@
 	"img-lang-go": " patawaw",
 	"table_pager_limit_submit": " patawaw",
 	"watchlistedit-raw-title": "pienji: ’inin’alayan kakita’an qintan",
-	"watchlisttools-view": " komita  ’ima hingha’an somapih",
+	"watchlisttools-view": " komita ’ima hingha’an somapih",
 	"watchlisttools-edit": " komita o pienji: kakita’an qintan",
 	"watchlisttools-raw": "pienji: ’inin’alayan kakita’an qintan",
 	"signature": "[[{{ns:user}}:$1|$2]] ([[{{ns:user_talk}}:$1| kapaehrahrangan ]])",

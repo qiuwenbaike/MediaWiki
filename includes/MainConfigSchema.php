@@ -8239,7 +8239,7 @@ class MainConfigSchema {
 	 * @since 1.16
 	 */
 	public const DnsBlacklistUrls = [
-		'default' => [ 'http.dnsbl.sorbs.net.', ],
+		'default' => [],
 		'type' => 'list',
 	];
 
@@ -8886,7 +8886,7 @@ class MainConfigSchema {
 	];
 
 	/**
-	 * Allow anonymous cross origin requests.
+	 * Allow anonymous cross origin requests to the REST API.
 	 *
 	 * This should be disabled for intranet sites (sites behind a firewall).
 	 *

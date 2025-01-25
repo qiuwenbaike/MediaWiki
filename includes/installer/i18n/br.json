@@ -7,7 +7,8 @@
 			"Huñvreüs",
 			"Macofe",
 			"Y-M D",
-			"아라"
+			"아라",
+			"Reedy"
 		]
 	},
 	"config-desc": "Poellad staliañ MediaWiki",
@@ -168,7 +169,7 @@
 	"config-admin-error-password": "Fazi diabarzh o lakaat ur ger-tremen evit ar merour « <nowiki>$1</nowiki> » : <pre>$2</pre>",
 	"config-admin-error-bademail": "Ebarzhet hoc'h eus ur chomlec'h postel direizh.",
 	"config-subscribe": "Koumanantit d'ar [https://lists.wikimedia.org/mailman/listinfo/mediawiki-roll kemennoù evit ar stummoù nevez].",
-	"config-pingback": "Rannañ roadennoù diwar-benn ar staliadur-mañ gant diorroerien Mediawiki.",
+	"config-pingback": "Rannañ roadennoù diwar-benn ar staliadur-mañ gant diorroerien MediaWiki.",
 	"config-almost-done": "Kazi echu eo !\nGellout a rit tremen ar c'hefluniadur nevez ha staliañ ar wiki war-eeun.",
 	"config-optional-continue": "Sevel muioc'h a goulennoù ouzhin.",
 	"config-optional-skip": "Aet on skuizh, staliañ ar wiki hepken.",
@@ -263,5 +264,5 @@
 	"config-help-tooltip": "klikañ evit astenn",
 	"config-nofile": "N'eus ket bet gallet kavout ar restr \"$1\". Daoust ha dilamet eo bet ?",
 	"mainpagetext": "<strong>Staliet eo bet MediaWiki.</strong>",
-	"mainpagedocfooter": "Sellit ouzh [https://meta.wikimedia.org/wiki/Help:Contents Sturlevr an implijerien] evit gouzout hiroc'h war an doare da implijout ar meziant wiki.\n\n== Kregiñ ganti ==\n\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Configuration_settings Roll an arventennoù kefluniañ]\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:FAQ FAG MediaWiki]\n* [https://lists.wikimedia.org/postorius/lists/mediawiki-announce.lists.wikimedia.org/ Roll ar c'haozeadennoù diwar-benn dasparzhoù MediaWiki]\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Localisation#Translation_resources Lec'hiañ MediaWiki en ho yezh"
+	"mainpagedocfooter": "Sellit ouzh [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents Sturlevr an implijerien] evit gouzout hiroc'h war an doare da implijout ar meziant wiki.\n\n== Kregiñ ganti ==\n\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Configuration_settings Roll an arventennoù kefluniañ]\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:FAQ FAG MediaWiki]\n* [https://lists.wikimedia.org/postorius/lists/mediawiki-announce.lists.wikimedia.org/ Roll ar c'haozeadennoù diwar-benn dasparzhoù MediaWiki]\n* [https://www.mediawiki.org/wiki/Special:MyLanguage/Localisation#Translation_resources Lec'hiañ MediaWiki en ho yezh"
 }
