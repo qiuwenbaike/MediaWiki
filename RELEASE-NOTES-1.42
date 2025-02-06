@@ -5,6 +5,13 @@ PHP 8.2 workboard: https://phabricator.wikimedia.org/tag/php_8.2_support/
 PHP 8.3 workboard: https://phabricator.wikimedia.org/tag/php_8.3_support/
 PHP 8.4 workboard: https://phabricator.wikimedia.org/tag/php_8.4_support/
 
+== MediaWiki 1.42.6 ==
+
+THIS IS NOT A RELEASE YET
+
+=== Changes since MediaWiki 1.42.5 ===
+* Localisation updates.
+
 == MediaWiki 1.42.5 ==
 
 This is a maintenance release of the MediaWiki 1.42 branch.
@@ -19,6 +26,11 @@ This is a maintenance release of the MediaWiki 1.42 branch.
   in the "Configuration changes for system administrators" section.
 * (T382484) dumps: Use proc_close() to close proc_open() subprocess.
 * (T375707) MWExceptionHandler: Add error suppression to constant( 'E_STRICT' ).
+* (T384879) FormatMetadata: Prevent running preg_match() on null.
+* (T384995) specialpage: Improve handling of invalid lang codes on login/signup.
+* (T385055) resourceloader: Fix hash computation for virtual files with
+  versionFilePath.
+* (T385169) MultiUsernameFilter: Don't try to split ids if they're not a string.
 
 == MediaWiki 1.42.4 ==
 
