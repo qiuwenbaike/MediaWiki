@@ -1082,6 +1082,7 @@
 	"rcfilters-filtergroup-user-experience-level": "Riggistrazzioni utenti e espirienza",
 	"rcfilters-filter-user-experience-level-registered-label": "Riggistratu",
 	"rcfilters-filter-user-experience-level-registered-description": "Cuntribbutura ca effettuaru l'accessu.",
+	"rcfilters-filter-user-experience-level-unregistered-label": "Nun riggistratu",
 	"rcfilters-filter-user-experience-level-unregistered-description": "Cuntribbutura ca nun effettuaru l'accessu.",
 	"rcfilters-filter-user-experience-level-experienced-label": "Utilizzatura cu espirienza",
 	"rcfilters-filter-bots-label": "Bot",
@@ -2982,6 +2983,8 @@
 	"renameuser-page-moved": "La pàggina $1 vinni spustata a $2.",
 	"renameuser-page-unmoved": "Mpussìbbili mòviri la pàggina $1 a $2.",
 	"log-name-renameuser": "Utenti ri-numinati",
+	"logentry-renameuser-renameuser": "$1 {{GENDER:$2|rinuminau}} l'utenti $4 (cu {{PLURAL:$6|$6 cuntribbutu|$6 cuntribbuti}}) 'n {{GENDER:$7|$5}}",
+	"logentry-renameuser-renameuser-legacier": "$1 {{GENDER:$2|rinuminau}} l'utenti $4 'n {{GENDER:$7|$5}}",
 	"renameuser-move-log": "Spustamentu autumàticu dâ pàggina - utenti ri-numinatu di \"[[User:$1|$1]]\" a \"[[User:$2|$2]]\"",
 	"action-renameuser": "ri-nòminari li utenti",
 	"right-renameuser": "Ri-nòmina li utenti"
