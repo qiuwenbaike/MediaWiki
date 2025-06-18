@@ -216,7 +216,7 @@ class MessageCache implements LoggerAwareInterface {
 		$this->rawHtmlMessages = $options->get( MainConfigNames::RawHtmlMessages );
 	}
 
-	public function setLogger( LoggerInterface $logger ) {
+	public function setLogger( LoggerInterface $logger ): void {
 		$this->logger = $logger;
 	}
 
@@ -1289,7 +1289,7 @@ class MessageCache implements LoggerAwareInterface {
 			// Message page exists as an override of a software messages
 			if ( substr( $entry, 0, 1 ) === ' ' ) {
 				// The message exists and is not '!TOO BIG' or '!ERROR'
-				return (string)substr( $entry, 1 );
+				return substr( $entry, 1 );
 			} elseif ( $entry === '!NONEXISTENT' ) {
 				// The text might be '-' or missing due to some data loss
 				return false;
@@ -1338,7 +1338,7 @@ class MessageCache implements LoggerAwareInterface {
 				$this->cache->setField( $code, $title, $entry );
 			}
 			// The message exists, so make sure a string is returned
-			return (string)substr( $entry, 1 );
+			return substr( $entry, 1 );
 		}
 
 		$this->cache->setField( $code, $title, '!NONEXISTENT' );

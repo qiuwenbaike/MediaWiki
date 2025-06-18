@@ -204,7 +204,7 @@ class ResourceLoader implements LoggerAwareInterface {
 	 * @since 1.26
 	 * @param LoggerInterface $logger
 	 */
-	public function setLogger( LoggerInterface $logger ) {
+	public function setLogger( LoggerInterface $logger ): void {
 		$this->logger = $logger;
 	}
 
@@ -1280,7 +1280,7 @@ MESSAGE;
 	 */
 	public static function ensureNewline( $str ) {
 		$end = substr( $str, -1 );
-		if ( $end === false || $end === '' || $end === "\n" ) {
+		if ( $end === '' || $end === "\n" ) {
 			return $str;
 		}
 		return $str . "\n";
