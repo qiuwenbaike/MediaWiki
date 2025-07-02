@@ -13,6 +13,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Pager\BlockListPager;
+use MediaWiki\Permissions\SimpleAuthority;
 use MediaWiki\Permissions\UltimateAuthority;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\SpecialPage\SpecialPageFactory;
@@ -390,5 +391,65 @@ class BlockListPagerTest extends MediaWikiIntegrationTestCase {
 		$this->assertStringContainsString( '(remove-blocklink)', $body );
 		// Check that we didn't leak the IP address into it
 		$this->assertStringNotContainsString( $addr, $body );
+	}
+
+	/**
+	 * @param string $expected
+	 * @param string $actual
+	 */
+	private function assertStringNotContainsStringIgnoringPunctuation( $expected, $actual ) {
+		$this->assertStringNotContainsString( $expected, $actual );
+		// Fail even if punctuation in the name was replaced
+		$regex = '/' . preg_replace( '/[^A-Za-z0-9]+/', '.+', $expected ) . '/';
+		$this->assertDoesNotMatchRegularExpression( $regex, $actual );
+	}
+
+	/**
+	 * T391343 regression test
+	 * @coversNothing
+	 */
+	public function testBlockLinkSuppression() {
+		$user = $this->getTestUser()->getUserIdentity();
+		$store = $this->getServiceContainer()->getDatabaseBlockStore();
+		$store->insertBlockWithParams( [
+			'targetUser' => $user,
+			'by' => $this->getTestSysop()->getUser(),
+		] );
+		$store->insertBlockWithParams( [
+			'targetUser' => $user,
+			'by' => $this->getTestSysop()->getUser(),
+			'hideName' => true
+		] );
+
+		RequestContext::getMain()->setAuthority(
+			new SimpleAuthority(
+				$this->getTestSysop()->getUserIdentity(),
+				[ 'block' ]
+			)
+		);
+
+		$pager = $this->getBlockListPager();
+		$body = $pager->getBody();
+		$this->assertStringNotContainsStringIgnoringPunctuation( $user->getName(), $body );
+	}
+
+	/**
+	 * T397595 regression test
+	 * @coversNothing
+	 */
+	public function testAutoblockSuppression() {
+		$user = $this->getTestUser()->getUserIdentity();
+		$store = $this->getServiceContainer()->getDatabaseBlockStore();
+		$block = $store->insertBlockWithParams( [
+			'targetUser' => $user,
+			'by' => $this->getTestSysop()->getUser(),
+			'hideName' => true,
+			'enableAutoblock' => true,
+		] );
+		$store->doAutoblock( $block, '127.0.0.42' );
+
+		$pager = $this->getBlockListPager();
+		$body = $pager->getBody();
+		$this->assertStringNotContainsStringIgnoringPunctuation( $user->getName(), $body );
 	}
 }
