@@ -393,7 +393,6 @@ class Exif {
 	/**
 	 * Collapse some fields together.
 	 * This converts some fields from exif form, to a more friendly form.
-	 * For example GPS latitude to a single number.
 	 *
 	 * The rationale behind this is that we're storing data, not presenting to the user
 	 * For example a longitude is a single number describing how far away you are from
@@ -505,10 +504,6 @@ class Exif {
 	}
 
 	/** #@- */
-
-	/** #@+
-	 * @return array
-	 */
 
 	/**
 	 * Get $this->mRawExifData
