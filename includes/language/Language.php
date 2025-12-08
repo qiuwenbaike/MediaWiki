@@ -2887,7 +2887,12 @@ class Language implements Bcp47Code {
 	 * @return string The string with uppercase conversion applied to the first character
 	 */
 	public function ucfirst( $str ) {
-		$octetCode = ord( $str );
+		// T410920: ord() doesn't like an empty string, so just return early
+		if ( $str === '' ) {
+			return '';
+		}
+
+		$octetCode = ord( $str[0] );
 		// See https://en.wikipedia.org/wiki/ASCII#Printable_characters
 		if ( $octetCode < 96 ) {
 			// Assume this is an uppercase/uncased ASCII character
@@ -2933,7 +2938,12 @@ class Language implements Bcp47Code {
 	 * @return string The string with lowercase conversion applied to the first character
 	 */
 	public function lcfirst( $str ) {
-		$octetCode = ord( $str );
+		// T410920: ord() doesn't like an empty string, so just return early
+		if ( $str === '' ) {
+			return '';
+		}
+
+		$octetCode = ord( $str[0] );
 		// See https://en.wikipedia.org/wiki/ASCII#Printable_characters
 		if ( $octetCode < 96 ) {
 			// Assume this is an uppercase/uncased ASCII character
@@ -3456,13 +3466,13 @@ class Language implements Bcp47Code {
 		if ( $number === '' ) {
 			return $number;
 		}
-		if ( $number === (string)NAN ) {
+		if ( $number === 'NAN' ) {
 			return $this->msg( 'formatnum-nan' )->text();
 		}
-		if ( $number === (string)INF ) {
+		if ( $number === 'INF' ) {
 			return "∞";
 		}
-		if ( $number === (string)-INF ) {
+		if ( $number === '-INF' ) {
 			return "\u{2212}∞";
 		}
 		if ( !is_numeric( $number ) ) {
@@ -3581,16 +3591,16 @@ class Language implements Bcp47Code {
 	 */
 	public function parseFormattedNumber( $number ) {
 		if ( $number === $this->msg( 'formatnum-nan' )->text() ) {
-			return (string)NAN;
+			return "NAN";
 		}
 		if ( $number === "∞" ) {
-			return (string)INF;
+			return "INF";
 		}
 		// Accept either ASCII hyphen-minus or the unicode minus emitted by
 		// ::formatNum()
 		$number = strtr( $number, [ "\u{2212}" => '-' ] );
 		if ( $number === "-∞" ) {
-			return (string)-INF;
+			return "-INF";
 		}
 		$s = $this->digitTransformTable();
 		if ( $s ) {
