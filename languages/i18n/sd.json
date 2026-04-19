@@ -15,7 +15,8 @@
 			"SaldırganSincap",
 			"Sindhu",
 			"Tweety",
-			"아라"
+			"아라",
+			"Siddhu Talreja"
 		]
 	},
 	"pagecategories": "{{PLURAL:$1|زمرو|زمرا}}",
@@ -42,6 +43,8 @@
 	"morenotlisted": "ھي فھرست نامڪمل بہ ٿي سگهي ٿي.",
 	"mypage": "صفحو",
 	"mytalk": "بحث",
+	"mytalk-appeal": "هن IP بلاڪ جي خلاف اپيل ڪريو",
+	"mytalk-appeal-submit": "جاري رکو",
 	"anontalk": "بحث",
 	"navigation": "رھنمائي",
 	"and": "&#32;۽",
