@@ -725,8 +725,8 @@
 	"temp-user-banner-tooltip-title": "Временная учётная запись",
 	"temp-user-banner-tooltip-description-expiration-soon": "<strong>Срок действия вашей временной учётной записи истекает через {{PLURAL:$1|$1 день|$1 дня|$1 дней}}.</strong> По истечении срока её действия при следующем редактировании без входа в систему будет создана новая.",
 	"temp-user-banner-tooltip-description-expiration-soon-day": "<strong>Срок действия вашей временной учётной записи истечёт менее чем через день.</strong> По истечении срока её действия при следующем редактировании без входа в систему будет создана новая.",
-	"temp-user-banner-tooltip-description-learn-more": "Данная временная учётная запись была создана автоматически, так как правка в этом браузере и на этом устройстве была совершена без входа в систему. [[{{MediaWiki:tempuser-helppage}}|Подробнее]].",
-	"temp-user-banner-tooltip-description-login": "[[Special:UserLogin|Войдите]] или [[Special:CreateAccount|создайте учётную запись]], чтобы сохранить авторство будущих правок и получить доступ к другим функциям.",
+	"temp-user-banner-tooltip-description-learn-more": "Эта временная учётная запись создана после внесения правки без авторизации в этом браузере и на этом устройстве. [[$1|Подробнее]].",
+	"temp-user-banner-tooltip-description-login": "[[Special:UserLogin|Войдите]] или [[Special:CreateAccount|создайте учётную запись]], чтобы авторство будущих правок было под выбранным вами именем и у вас появился доступ к другим функциям.",
 	"blankarticle": "<strong>Предупреждение:</strong> Страница, которую вы создаёте, пуста.\nЕсли снова нажмёте кнопку «$1», страница будет создана без какого-либо содержания.",
 	"anoneditwarning": "<strong>Внимание:</strong> Вы не вошли в систему. Ваш IP-адрес будет общедоступен, если вы запишете какие-либо изменения. Если вы <strong>[$1 войдёте]</strong> или <strong>[$2 создадите учётную запись]</strong>, её имя будет использоваться вместо IP-адреса, наряду с другими преимуществами.",
 	"autocreate-edit-warning": "<strong>Внимание:</strong> вы не вошли в систему. После внесения изменений для вас будет создана временная учётная запись. [[{{MediaWiki:tempuser-helppage}}|Подробнее]]. <strong>[$1 Войдите в систему]</strong> или <strong>[$2 создайте учётную запись]</strong>, чтобы продолжать получать уведомления после истечения срока действия этой учётной записи, а также получить доступ к другим функциям.",
@@ -3226,6 +3226,7 @@
 	"watchlistedit-table-title-pages": "Заголовок страницы",
 	"watchlistedit-table-title-expiry": "Истекает",
 	"watchlistedit-table-remove-selected": "Удалить {{PLURAL:$1|страницу|страницы}}",
+	"watchlistedit-table-remove-selected-error": "Не удалось удалить страницы",
 	"watchlistedit-unwatch-confirmation": "{{PLURAL:$2|Удалить}} $1 из вашего списка наблюдения?",
 	"watchlistedit-unwatch-confirmation-empty": "Выберите страницы, которые вы хотите удалить из своего списка наблюдения.",
 	"watchlistedit-unwatch-confirmation-accept": "Удалить",
@@ -4116,5 +4117,6 @@
 	"table-of-contents-show-button-aria-label": "Показать содержание",
 	"table-of-contents-hide-button-aria-label": "Скрыть содержание",
 	"diff-usergroups": "$1 {{PLURAL:$1|группа участника|группы участника|групп участника}}",
-	"languageselector-no-results": "Ничего не найдено."
+	"languageselector-no-results": "Ничего не найдено.",
+	"languageselector-invalid-input": "«$1» — некорректный язык."
 }
