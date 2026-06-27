@@ -11,6 +11,19 @@ THIS IS NOT A RELEASE YET
 MediaWiki 1.46 is a pre-release testing branch, and is not recommended
 for use in production.
 
+=== Changes since MediaWiki 1.46.0-rc.0 ===
+* Localisation updates.
+* (T425818) changePassword: Log password change to authentication log.
+* changePassword: Add reason option for password change.
+* (T427622) Store indicators in ContentHolder: forward compatibility.
+* (T421366) Email confirmation banner: Remove obsolete arm_b variant.
+* (T428289) Email confirmation banner: Remove Test Kitchen A/B test scaffolding.
+* (T428406) LocalFileMoveBatch: Also update fr_archive_name when moving file.
+* (T429826) Updated guzzlehttp/guzzle from 7.10.0 to 7.12.1.
+* (T423617) Check the target url for redirects are allowed.
+* (T429965) Updated guzzlehttp/guzzle from 7.12.1 to 7.12.3.
+* (T428809) SECURITY: Parse message using v-i18n-html instead of using v-html.
+
 == Upgrading notes for 1.46 ==
 Don't forget to always back up your database before upgrading!
 
@@ -124,6 +137,7 @@ For notes on 1.45.x and older releases, see HISTORY.
 
 * Updated codex, codex-design-tokens and codex-icons
   from v2.3.2 to v2.5.1.
+* Updated guzzlehttp/guzzle from 7.10.0 to 7.12.3.
 * Updated jsonrainbow/json-schema from 5.3.0 to 5.3.4.
 * Updated lcobucci/jwt from 4.1.5 to 5.6.0.
 * Updated monolog/monolog from 2.9.3 to 2.11.0.
