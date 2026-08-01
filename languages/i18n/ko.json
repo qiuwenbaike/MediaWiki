@@ -288,7 +288,7 @@
 	"page-rss-feed": "\"$1\" RSS 피드",
 	"page-atom-feed": "\"$1\" 아톰 피드",
 	"feed-atom": "아톰",
-	"red-link-title": "$1 (없는 문서)",
+	"red-link-title": "$1 (문서가 존재하지 않음)",
 	"sort-descending": "내림차순 정렬",
 	"sort-ascending": "오름차순 정렬",
 	"sort-initial": "첫글자로 정렬",
