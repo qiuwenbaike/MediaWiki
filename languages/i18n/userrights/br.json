@@ -7,7 +7,8 @@
 			"Gwendal",
 			"Gwenn-Ael",
 			"Huñvreüs",
-			"Y-M D"
+			"Y-M D",
+			"Ar choler"
 		]
 	},
 	"userrights": "Gwirioù an implijer",
@@ -40,7 +41,7 @@
 	"userrights-conflict": "Bec'h zo abalamour da gemmoù e gwirioù an implijerien. Adwelit an traoù, mar plij, ha kadarnait ho kemmoù.",
 	"group": "Strollad :",
 	"group-user": "Implijerien",
-	"group-temp": "Implijerien berrbad",
+	"group-temp": "Implijerien verrbad",
 	"group-autoconfirmed": "Implijerien bet kadarnaet ent emgefre",
 	"group-bot": "Robotoù",
 	"group-sysop": "Merourien",
@@ -57,9 +58,9 @@
 	"group-bureaucrat-member": "{{GENDER:$1|bureviad}}",
 	"group-suppress-member": "{{GENDER:$1|dilamer|dilamerez}}",
 	"grouppage-user": "{{ns:project}}:Implijerien",
-	"grouppage-temp": "{{ns:project}}:Implijerien berrbad",
+	"grouppage-temp": "{{ns:project}}:Implijerien verrbad",
 	"grouppage-autoconfirmed": "{{ns:project}}: Implijerien bet kadarnaet ent emgefre",
-	"grouppage-bot": "{{ns:project}}:Botoù",
+	"grouppage-bot": "{{ns:project}}:Robotoù",
 	"grouppage-sysop": "{{ns:project}}:Merourien",
 	"grouppage-interface-admin": "{{ns:project}}:Merourien etrefas",
 	"grouppage-bureaucrat": "{{ns:project}}: Burevidi",
