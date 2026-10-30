@@ -260,8 +260,8 @@ For notes on 1.46.x and older releases, see HISTORY.
 
 ==== New external libraries ====
 
-* Added symfony/mailer at 7.4.19.
-* Added symfony/mime at 7.4.19.
+* Added symfony/mailer at 7.4.22.
+* Added symfony/mime at 7.4.22.
 * Added symfony/polyfill-php86 at 1.43.0.
 * …
 
@@ -293,6 +293,7 @@ For notes on 1.46.x and older releases, see HISTORY.
 * Updated wikimedia/language-data from 1.1.13 to 1.1.14.
 * Updated wikimedia/minify from 2.10.0 to 2.12.0.
 * Updated wikimedia/object-factory from 6.0.0 to 7.0.0.
+* Updated wikimedia/parsoid from 0.23.0 to 0.24.0.
 * Updated wikimedia/shellbox from 4.4.0 to 4.5.2.
 * …
 
@@ -322,6 +323,11 @@ For notes on 1.46.x and older releases, see HISTORY.
 * Removed wikimedia/php-session-serializer, no longer used (T431315).
 * …
 
+===== Removed development-only external libraries =====
+
+* Removed wikimedia/langconv.
+* …
+
 === Bug fixes in 1.47 ===
 
 * (T74768) Fix an issue in 'mediawiki.Upload.js' where 'watchlist' is set to an
@@ -330,6 +336,9 @@ For notes on 1.46.x and older releases, see HISTORY.
 
 === Action API changes in 1.47 ===
 * php response format has been removed.
+* list=users and list=allusers have a new blockhidden field in the blockinfo
+  property, which is true when the block is hidden. Only these two modules
+  output the field, and only to users with the hideuser right.
 * When encountering a 'reauthenticate' error, clients must start a new
   authentication process by passing the "operation" value included in the
   error into meta=authmanagerinfo&amirequestsfor=login as 'amireauthenticate',
@@ -652,6 +661,8 @@ because of Phabricator reports.
 * The "MainWANObjectCache" service and MediaWikiServices::getMainWANObjectCache
   method have been deprecated. Inject the "WANObjectCache" service name
   or call MediaWikiServices::getWANObjectCache instead.
+* MetricInterface::copyToStatsdAt(), deprecated since 1.45, now emits
+  deprecation warnings.
 * OutputPage::setPrintable, OutputPage::isPrintable, and
   OutputPage::transformCssMedia are no longer needed per T259141 and have been
   deprecated without replacement.
