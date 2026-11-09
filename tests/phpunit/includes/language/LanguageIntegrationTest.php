@@ -1959,6 +1959,11 @@ class LanguageIntegrationTest extends LanguageClassesTestCase {
 			$lang->embedBidi( 'יהודי (מנוחין)' ),
 			'embedBidi with RTL argument'
 		);
+		$this->assertEquals(
+			$lre . "\u{17000}" . $pdf,
+			$lang->embedBidi( "\u{17000}" ),
+			'embedBidi with LTR argument from Unicode 9.0+ (Tangut)'
+		);
 	}
 
 	/**
@@ -2107,6 +2112,9 @@ class LanguageIntegrationTest extends LanguageClassesTestCase {
 			[ false, 'pl', 10000, false, "10\u{00A0}000" ],
 			[ false, 'pl', 1000000, false, "1\u{00A0}000\u{00A0}000" ],
 			[ false, 'pl', '1000.1', false, "1000,1" ],
+
+			// Invalid lang code - T437592
+			[ true, 'lang=sl', 100, false, '100' ],
 		];
 	}
 

@@ -940,7 +940,7 @@
 	"mergehistory-fail-invalid-dest": "Halaman tujuan tidak valid.",
 	"mergehistory-fail-start-after-end": "Timestamp awal berada setelah timestamp akhir, atau setelah revisi terakhir pada halaman tersebut.",
 	"mergehistory-fail-no-change": "Penggabungan riwayat tidak berhasil menggabungkan revisi apa pun. Mohon periksa kembali parameter halaman dan waktu.",
-	"mergehistory-fail-permission": "Izin [[Wikipedia:Penggabungan dua riwayat|penggabungan dua riwayat]] halaman tidak mencukupi.",
+	"mergehistory-fail-permission": "Izin [[Project:Penggabungan dua riwayat|penggabungan dua riwayat]] halaman tidak mencukupi.",
 	"mergehistory-fail-self-merge": "Halaman asal dan tujuan sama.",
 	"mergehistory-fail-timestamps-overlap": "Revisi asal tumpang tindih atau lebih baru dari revisi tujuan.",
 	"mergehistory-fail-change-current-revision": "Tidak dapat mengubah revisi terkini dari kedua halaman melalui MergeHistory (kecuali saat menggabungkan seluruh halaman sumber ke halaman tujuan).",
@@ -3426,7 +3426,7 @@
 	"tag-mw-recreated-description": "Suntingan yang membuat halaman yang sebelumnya telah dihapus",
 	"tag-mw-rollback": "Pengembalian",
 	"tag-mw-rollback-description": "Suntingan yang membatalkan suntingan sebelumnya menggunakan pranala batalkan",
-	"tag-mw-undo": "Batalkan",
+	"tag-mw-undo": "Pembatalan",
 	"tag-mw-undo-description": "Suntingan yang membatalkan suntingan sebelumnya dengan tombol kembalikan",
 	"tag-mw-manual-revert": "Pengembalian manual",
 	"tag-mw-manual-revert-description": "Suntingan yang secara manual mengembalikan halaman ke keadaannya persis sebelumnya.",
@@ -4181,5 +4181,6 @@
 	"benefit-3-description": "Preferensi yang memungkinkan Anda menyesuaikan pengalaman Anda.",
 	"temp-user-unable-to-acquire": "Tidak dapat memperoleh nama pengguna akun sementara. Silakan coba lagi.",
 	"table-of-contents-show-button-aria-label": "Tampilkan daftar isi",
-	"table-of-contents-hide-button-aria-label": "Sembunyikan daftar isi"
+	"table-of-contents-hide-button-aria-label": "Sembunyikan daftar isi",
+	"mypage-disallowed-action": "Untuk alasan keamanan, tindakan \"$1\" tidak dapat digunakan pada halaman Special:MyPage."
 }
